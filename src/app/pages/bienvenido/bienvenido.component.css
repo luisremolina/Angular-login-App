@@ -1,0 +1,11 @@
+img{
+    /* background-image: url("../../../assets/images/welcome.jpg"); */
+    /* height: 550px; */
+    /* background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; */
+    width: 100%;
+    object-fit: contain;
+    
+}
