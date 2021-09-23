@@ -1,0 +1,17 @@
+<!-- <h4 *ngFor="let libro of libros"> {{ libro }} </h4> -->
+
+<!-- <input type="text" name="input" [(ngModel)]="input">
+<button (click)="addLibro()">ver más</button>
+<h1>{{input}}</h1> -->
+<h1> MIS LIBROS FAVORITOS </h1>
+
+<form #f="ngForm" (ngSubmit)="guardar(f)">
+  <input type="text" name="libro" ngModel required>
+  <button>guardar</button>
+</form>
+
+
+
+<!-- <app-libro (libroClicked)="borrar(libro)" *ngFor="let libro of libros" [titulo]="libro" [descripcion]="descripcion"></app-libro> -->
+
+<app-libro *ngFor="let libro of libros" [titulo]="libro" [descripcion]="descripcion"></app-libro>

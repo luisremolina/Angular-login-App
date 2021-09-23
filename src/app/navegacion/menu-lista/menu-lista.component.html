@@ -1,0 +1,28 @@
+<mat-nav-list>
+  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/home">
+    <mat-icon> home </mat-icon>
+    <span class="navegation-list-label">Inicio</span>
+  </a>
+  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/books">
+    <mat-icon> library_books </mat-icon>
+    <span class="navegation-list-label"> Books </span>
+  </a>
+  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/autores">
+    <mat-icon> supervisor_account </mat-icon>
+    <span class="navegation-list-label"> Autores </span>
+  </a>
+  <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/registrar">
+    <mat-icon> how_to_reg </mat-icon>
+    <span class="navegation-list-label">Registrar</span>
+  </a>
+  <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/login">
+    <mat-icon> login </mat-icon>
+    <span class="navegation-list-label">Login</span>
+  </a>
+
+  <mat-list-item *ngIf="estadoUsuario" (click)="cerrarSesion()">
+    <mat-icon> eject </mat-icon>
+    <span class="navegation-list-label"> Cerrar Sesion </span>
+  </mat-list-item>
+
+</mat-nav-list>

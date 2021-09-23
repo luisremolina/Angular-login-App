@@ -1,0 +1,44 @@
+<section>
+  <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="registrar(f)">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese nombre</mat-label>
+      <input matInput type="text" ngModel name="nombre" placeholder="Ingrese un nombre" required>
+      <mat-error>Por favor ingrese un nombre</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese apellidos</mat-label>
+      <input matInput type="text" ngModel name="apellido" placeholder="Ingrese un apellidos" required>
+      <mat-error>Por favor ingrese un apellidos</mat-error>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Ingrese username</mat-label>
+      <input matInput type="text" ngModel name="username" placeholder="ejemplo: empanadas1234" required>
+      <mat-error>Por favor ingrese un username</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="" appearance="fill">
+      <mat-label>Correo Electronico</mat-label>
+      <input type="email" matInput placeholder="example@gmail.com" ngModel name="email" required email
+        #emailInput="ngModel" />
+      <mat-error *ngIf="emailInput.hasError('required')">No puede estar vacio</mat-error>
+      <mat-error *ngIf="!emailInput.hasError('required')">Ingrese un email valido</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="" appearance="fill" hintLabel="El password debe tener 7 caracteres">
+      <mat-label>Ingrese Contraseña</mat-label>
+      <input type="password" matInput placeholder="Ingresa Password" ngModel name="password" required minlength="7" />
+      <mat-error>La contraseña debe tener mas de 7 caracteres</mat-error>
+    </mat-form-field>
+
+    <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary">Registrar</button>
+  </form>
+</section>
+
+<!-- <section id="contenedor">
+  <div class="elemento" id="elemento1"></div>
+  <div class="elemento" id="elemento2"></div>
+  <div class="elemento" id="elemento3"></div>
+</section> -->
