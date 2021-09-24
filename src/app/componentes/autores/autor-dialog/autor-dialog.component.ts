@@ -30,7 +30,10 @@ export class AutorDialogComponent implements OnInit {
         nombre: form.value.nombre,
         apellido: form.value.apellido,
         gradoAcademico: form.value.gradoAcademico,
-        nombreCompleto: nombreCompleto
+        nombreCompleto: nombreCompleto,
+        imgLogo: 'assets/img/default.jpg',
+        imgFoto: 'assets/img/default.jpg'
+
       }
 
       this.autorServices.addAutor(AutorRequest);

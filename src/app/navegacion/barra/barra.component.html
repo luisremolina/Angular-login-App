@@ -1,8 +1,8 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="bg-color">
   <button mat-icon-button (click)="abrirMenu()">
-    <mat-icon> menu </mat-icon>
+    <mat-icon class="blanco"> menu </mat-icon>
   </button>
-  <span>Libro Market</span>
+  <span class="blanco">Libro Market</span>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <ul class="navegation-menu" fxLayoutGap="10px" fxLayout="row">
       <li> <a *ngIf="userLogueado" routerLink="/home">Inicio</a> </li>

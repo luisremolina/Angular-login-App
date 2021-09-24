@@ -4,4 +4,6 @@ export interface Autor{
     apellido: string;
     gradoAcademico: string;
     nombreCompleto?: string;
+    imgLogo: string;
+    imgFoto: string;
  }

@@ -10,4 +10,10 @@ a:active{
 .navegation-menu{
 list-style: none;
 }
+.bg-color{
+  background-color: #0077b6;
+}
+.blanco{
+  color: #fff;
+}
 
