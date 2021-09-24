@@ -1,3 +1,4 @@
+<h1> Listado de Autores</h1>
 <mat-table [dataSource] = "dataSource">
 
   <ng-container matColumnDef="nombre">
@@ -19,3 +20,7 @@
   <mat-row *matRowDef="let row, columns: desplegarColumnas"> </mat-row>
 
 </mat-table>
+
+<button mat-fab id="btn-agg" color="warn" (click)="abrirDialog()">
+  <mat-icon>add</mat-icon>
+</button>

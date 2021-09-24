@@ -11,6 +11,14 @@
     <mat-icon> supervisor_account </mat-icon>
     <span class="navegation-list-label"> Autores </span>
   </a>
+  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/vista-books">
+    <mat-icon> library_books </mat-icon>
+    <span class="navegation-list-label"> Tarjeta Books </span>
+  </a>
+  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/vista-autores">
+    <mat-icon> supervisor_account </mat-icon>
+    <span class="navegation-list-label"> Tarjeta Autores </span>
+  </a>
   <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/registrar">
     <mat-icon> how_to_reg </mat-icon>
     <span class="navegation-list-label">Registrar</span>

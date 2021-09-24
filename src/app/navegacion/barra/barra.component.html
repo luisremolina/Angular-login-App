@@ -8,6 +8,8 @@
       <li> <a *ngIf="userLogueado" routerLink="/home">Inicio</a> </li>
       <li> <a *ngIf="userLogueado" routerLink="/books">Books</a> </li>
       <li> <a *ngIf="userLogueado" routerLink="/autores">Autores</a> </li>
+      <li> <a *ngIf="userLogueado" routerLink="/vista-autores">Tarjeta Autores</a> </li>
+      <li> <a *ngIf="userLogueado" routerLink="/vista-books">Tarjeta Libros</a> </li>
       <li (click)="cerrarSesion()"> <a routerLink="/" *ngIf="userLogueado">Salir</a> </li>
       <li> <a *ngIf="!userLogueado" routerLink="/login">Login</a> </li>
       <li> <a *ngIf="!userLogueado" routerLink="/registrar">Registrar</a> </li>

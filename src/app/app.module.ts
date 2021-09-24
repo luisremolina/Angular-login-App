@@ -20,6 +20,9 @@ import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AutoresComponent } from './componentes/autores/autores.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SeguridadInterceptor } from './seguridad/seguridad-interceptor';
+import { AutorDialogComponent } from './componentes/autores/autor-dialog/autor-dialog.component';
+import { TarjetaAutoresComponent } from './componentes/tarjeta-autores/tarjeta-autores.component';
+import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { SeguridadInterceptor } from './seguridad/seguridad-interceptor';
     BooksComponent,
     BookDialogComponent,
     AutoresComponent,
+    AutorDialogComponent,
+    TarjetaAutoresComponent,
+    TarjetaBooksComponent,
   ],
   imports: [
     BrowserModule,

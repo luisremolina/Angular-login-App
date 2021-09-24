@@ -22,8 +22,8 @@ import { BookDialogComponent } from './book-dialog/book-dialog.component';
 })
 export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
   totalLibros = 0;
-  librosPorPagina = 2;
-  paginaCombo = [1, 2, 5, 10];
+  librosPorPagina = 5;
+  paginaCombo = [2, 5, 10, 15];
   paginaActual = 1;
   sort = 'titulo';
   sortDirection = 'asc';
@@ -61,6 +61,7 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     }, 1000);
   }
+
   abrirDialog() {
     const dialogRef = this.dialog.open(BookDialogComponent, {
       width: '550px',
@@ -76,6 +77,7 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
         );
       });
   }
+
   eventoPaginador(event: PageEvent): void {
     this.librosPorPagina = event.pageSize;
     this.paginaActual = event.pageIndex + 1;
@@ -87,6 +89,7 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
       this.filterValue
     );
   }
+
   ordenarColumna(event) {
     this.sort = event.active;
     this.sortDirection = event.direction;
@@ -114,6 +117,7 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
       });
   }
   ngAfterViewInit() {
+
     this.dataSource.sort = this.ordenamiento;
     this.dataSource.paginator = this.paginacion;
   }

@@ -12,12 +12,6 @@ export class AutoresService {
   private autoresLista: Autor[] = [];
   private autoresSubject = new Subject<Autor[]>();
 
-  // private autoresLista: Autor[] = [
-  //   {autorId: 1, nombre: 'Eichiro', apellidos: 'Oda', gradoAcademico: 'Universitario'},
-  //   {autorId: 2, nombre: 'Kisimono', apellidos: 'kaku', gradoAcademico: 'Novelista'},
-  //   {autorId: 3, nombre: 'Luis', apellidos: 'Remolina', gradoAcademico: 'Ingeniero de sistemas'},
-  //   {autorId: 3, nombre: 'Juan Jose', apellidos: 'Jaimes', gradoAcademico: 'Ingeniero de sistemas'}
-  // ];
 
   constructor(private http: HttpClient) { }
 
@@ -32,4 +26,14 @@ export class AutoresService {
     return this.autoresSubject.asObservable();
   }
 
+  addAutor(usr: Autor): void {
+
+    this.http.post(this.baseUrl + 'api/libreriaAutor', usr)
+    .subscribe((response)=>{
+
+      this.autoresSubject.next();
+
+    });
+
+  }
 }

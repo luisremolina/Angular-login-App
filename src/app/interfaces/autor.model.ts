@@ -1,6 +1,7 @@
 export interface Autor{
-    _id: number;
+    _id?: number;
     nombre: string;
     apellido: string;
     gradoAcademico: string;
+    nombreCompleto?: string;
  }
