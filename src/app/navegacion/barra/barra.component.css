@@ -5,6 +5,7 @@ a {
 a:hover,
 a:active{
   color: #DBCDE6;
+  /* font-weight: 400; */
 }
 
 .navegation-menu{
@@ -16,4 +17,12 @@ list-style: none;
 .blanco{
   color: #fff;
 }
-
+.btn-color{
+  color: #0077b6;
+}
+.puntero{
+  cursor: pointer;
+}
+.contedor{
+  color: #00b4d8;
+}

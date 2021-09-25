@@ -117,7 +117,6 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
       });
   }
   ngAfterViewInit() {
-
     this.dataSource.sort = this.ordenamiento;
     this.dataSource.paginator = this.paginacion;
   }

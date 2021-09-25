@@ -5,14 +5,34 @@
   <span class="blanco">Libro Market</span>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
     <ul class="navegation-menu" fxLayoutGap="10px" fxLayout="row">
+
+      <!-- ROUTES CON USER LOGEADO -->
+
       <li> <a *ngIf="userLogueado" routerLink="/home">Inicio</a> </li>
-      <li> <a *ngIf="userLogueado" routerLink="/books">Books</a> </li>
-      <li> <a *ngIf="userLogueado" routerLink="/autores">Autores</a> </li>
-      <li> <a *ngIf="userLogueado" routerLink="/vista-autores">Tarjeta Autores</a> </li>
-      <li> <a *ngIf="userLogueado" routerLink="/vista-books">Tarjeta Libros</a> </li>
+
+      <!-- BOTONES TOGLER -->
+      <li> <a class="puntero" *ngIf="userLogueado" [matMenuTriggerFor]="belowMenu">Autores</a> </li>
+      <li> <a class="puntero" *ngIf="userLogueado" [matMenuTriggerFor]="belowMenuBooks">Books</a> </li>
+
+      <!-- CERRAR SESION -->
       <li (click)="cerrarSesion()"> <a routerLink="/" *ngIf="userLogueado">Salir</a> </li>
+
+      <!-- LOGIN ROUTES -->
       <li> <a *ngIf="!userLogueado" routerLink="/login">Login</a> </li>
       <li> <a *ngIf="!userLogueado" routerLink="/registrar">Registrar</a> </li>
+
+
     </ul>
+
+    <!-- toggle bottoms -->
+    <mat-menu #belowMenu="matMenu" yPosition="below">
+      <a class="btn-color" mat-menu-item  routerLink="/autores">Lista</a>
+      <a class="btn-color" mat-menu-item  routerLink="/vista-autores">Tarjetas</a>
+    </mat-menu>
+
+    <mat-menu #belowMenuBooks="matMenu" yPosition="below">
+      <a class="btn-color" mat-menu-item routerLink="/books">Lista</a>
+      <a class="btn-color" mat-menu-item routerLink="/vista-books">Tarjetas</a>
+    </mat-menu>
   </div>
 </mat-toolbar>

@@ -1,36 +1,66 @@
-<mat-nav-list>
-  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/home">
-    <mat-icon> home </mat-icon>
-    <span class="navegation-list-label">Inicio</span>
-  </a>
-  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/books">
-    <mat-icon> library_books </mat-icon>
-    <span class="navegation-list-label"> Books </span>
-  </a>
-  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/autores">
-    <mat-icon> supervisor_account </mat-icon>
-    <span class="navegation-list-label"> Autores </span>
-  </a>
-  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/vista-books">
-    <mat-icon> library_books </mat-icon>
-    <span class="navegation-list-label"> Tarjeta Books </span>
-  </a>
-  <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/vista-autores">
-    <mat-icon> supervisor_account </mat-icon>
-    <span class="navegation-list-label"> Tarjeta Autores </span>
-  </a>
-  <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/registrar">
-    <mat-icon> how_to_reg </mat-icon>
-    <span class="navegation-list-label">Registrar</span>
-  </a>
-  <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/login">
-    <mat-icon> login </mat-icon>
-    <span class="navegation-list-label">Login</span>
-  </a>
+<div class="contenedor">
+  <mat-nav-list>
+    <!-- USUARIOS LOGUEADOS  -->
 
-  <mat-list-item *ngIf="estadoUsuario" (click)="cerrarSesion()">
-    <mat-icon> eject </mat-icon>
-    <span class="navegation-list-label"> Cerrar Sesion </span>
-  </mat-list-item>
+    <a *ngIf="estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/home">
+      <mat-icon> home </mat-icon>
+      <span class="navegation-list-label">Inicio</span>
+    </a>
 
-</mat-nav-list>
+    <!-- MAT EXPANDIBLE DE BOOKS -->
+    <mat-accordion  *ngIf="estadoUsuario">
+      <mat-expansion-panel class="colorbg"
+      class="colorbg" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Books
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a class="btn-color" (click)="cerrarMenu()" mat-menu-item routerLink="/books">Lista</a>
+        <a class="btn-color" (click)="cerrarMenu()" mat-menu-item routerLink="/vista-books">Tarjetas</a>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <!-- FIN DE EXPANDIBLE -->
+
+    <!-- MAT EXPANDIBLE DE AUTORES -->
+    <mat-accordion  *ngIf="estadoUsuario">
+      <mat-expansion-panel class="colorbg"
+      class="colorbg" (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Autores
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a class="btn-color" (click)="cerrarMenu()" mat-menu-item routerLink="/autores">Lista</a>
+        <a class="btn-color" (click)="cerrarMenu()" mat-menu-item routerLink="/vista-autores">Tarjetas</a>
+      </mat-expansion-panel>
+    </mat-accordion>
+    <!-- FIN DE EXPANDIBLE -->
+
+    <!-- CERRAR SESION -->
+
+    <mat-list-item *ngIf="estadoUsuario" (click)="cerrarSesion()">
+      <mat-icon> eject </mat-icon>
+      <span class="navegation-list-label"> Cerrar Sesion </span>
+    </mat-list-item>
+
+    <!-- LOGIN Y REGISTRO -->
+    <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/registrar">
+      <mat-icon> how_to_reg </mat-icon>
+      <span class="navegation-list-label">Registrar</span>
+    </a>
+    <a *ngIf="!estadoUsuario" (click)="cerrarMenu()" mat-list-item routerLink="/login">
+      <mat-icon> login </mat-icon>
+      <span class="navegation-list-label">Login</span>
+    </a>
+
+
+  </mat-nav-list>
+
+  <mat-menu #belowMenu="matMenu" yPosition="below">
+    <a class="btn-color" (click)="cerrarMenu()" mat-menu-item routerLink="/autores">Lista</a>
+    <a class="btn-color" (click)="cerrarMenu()" mat-menu-item routerLink="/vista-autores">Tarjetas</a>
+  </mat-menu>
+
+
+</div>

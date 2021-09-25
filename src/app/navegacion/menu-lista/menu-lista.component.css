@@ -1,3 +1,7 @@
+.contenedor{
+  background-color: #889EAF;
+  height: 100vh;
+}
 a {
   text-decoration: none;
   color: #fff;
@@ -9,4 +13,7 @@ a:active{
 .navegation-list-label{
   display: inline-block;
   padding-left: 7px;
+}
+.colorbg{
+  background-color: #889EAF;
 }

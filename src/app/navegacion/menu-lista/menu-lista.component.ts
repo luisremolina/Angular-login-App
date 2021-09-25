@@ -12,10 +12,11 @@ export class MenuListaComponent implements OnInit, OnDestroy {
   @Output() menuClose = new EventEmitter();
   usuarioSuscripcion: Subscription;
   estadoUsuario: boolean;
-
-  constructor(private seguridadServicio: SeguridadService) { }
+  panelOpenState: boolean;
+  constructor(private seguridadServicio: SeguridadService) {  }
 
   ngOnInit(): void {
+    this.panelOpenState = false;
     this.usuarioSuscripcion = this.seguridadServicio.seguridadCambio.subscribe(status =>{
       this.estadoUsuario = status;
     });

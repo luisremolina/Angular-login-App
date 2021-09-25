@@ -43,6 +43,46 @@
             <mat-error>Ingresa un Grado academico</mat-error>
           </mat-form-field>
 
+          <mat-form-field>
+            <mat-label> Obras </mat-label>
+            <input
+              type="text"
+              matInput
+              name="genero"
+              ngModel
+              required
+            />
+            <mat-error>Ingresa una obra del autor</mat-error>
+          </mat-form-field>
+
+          <mat-form-field fxLayoutGap="15px">
+
+            <div class="margen"> <label>Foto de perfil *</label> </div>
+            <input
+              (change)="obtenerImagen($event)"
+              type="File"
+              matInput
+              name="imgFoto"
+              ngModel
+              required
+            />
+            <mat-error>Porfavor selecciona una imagen</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <div class="margen"> <label >Foto de Logo *</label> </div>
+
+            <input
+              (change)="obtenerLogo($event)"
+              type="File"
+              matInput
+              name="imgLogo"
+              ngModel
+              required
+            />
+            <mat-error>Porfavor selecciona una imagen</mat-error>
+          </mat-form-field>
+
         </div>
       </mat-card>
     </section>

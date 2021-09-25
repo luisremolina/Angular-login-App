@@ -1,19 +1,26 @@
-<mat-card class="example-card">
-  <mat-card-header>
-    <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>Shiba Inu</mat-card-title>
-    <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-  </mat-card-header>
-  <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
-  <mat-card-content>
-    <p>
-      The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-      A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-      bred for hunting.
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
-  </mat-card-actions>
-</mat-card>
+<div class="flex" >
+  <mat-card class="example-card margen" *ngFor="let book of booksLista">
+    <mat-card-header>
+      <div mat-card-avatar> <img class="cover" [src]="book.img | noimage" alt="..."> </div>
+      <mat-card-title class="color"> {{book.titulo | uppercase }} </mat-card-title>
+      <mat-card-subtitle class="color">{{book.autor.nombreCompleto}}</mat-card-subtitle>
+    </mat-card-header >
+    <div class="margen">
+
+      <img mat-card-image class="img" src="{{book.imgFoto | noimage}}" alt="Photo of a Shiba Inu">
+    </div>
+    <mat-card-content>
+      <p class="color">
+        {{ book.descripcion}}
+      </p>
+      <span> {{book.precio}} </span>
+      <hr>
+      <span> {{book.fechaPublicacion | date}}</span>
+    </mat-card-content>
+    <mat-card-actions>
+      <button class="color" mat-button>LIKE</button>
+      <button class="color" mat-button>SHARE</button>
+    </mat-card-actions>
+  </mat-card>
+
+</div>

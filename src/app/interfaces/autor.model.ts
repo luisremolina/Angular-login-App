@@ -6,4 +6,5 @@ export interface Autor{
     nombreCompleto?: string;
     imgLogo: string;
     imgFoto: string;
+    genero: string;
  }

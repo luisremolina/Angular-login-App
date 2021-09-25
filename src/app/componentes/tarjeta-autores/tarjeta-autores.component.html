@@ -1,7 +1,7 @@
 <div class="flex" >
   <mat-card class="example-card margen" *ngFor="let autor of autores">
     <mat-card-header>
-      <div mat-card-avatar class="example-header-image"></div>
+      <div mat-card-avatar> <img class="cover" src="{{autor.imgLogo}}" alt=""> </div>
       <mat-card-title class="color"> {{autor.nombreCompleto | uppercase }} </mat-card-title>
       <mat-card-subtitle class="color">{{autor.gradoAcademico}}</mat-card-subtitle>
     </mat-card-header >

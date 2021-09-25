@@ -23,6 +23,7 @@ import { SeguridadInterceptor } from './seguridad/seguridad-interceptor';
 import { AutorDialogComponent } from './componentes/autores/autor-dialog/autor-dialog.component';
 import { TarjetaAutoresComponent } from './componentes/tarjeta-autores/tarjeta-autores.component';
 import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books.component';
+import { NoimagePipe } from './pipes/noimage.pipe';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books
     AutorDialogComponent,
     TarjetaAutoresComponent,
     TarjetaBooksComponent,
+    NoimagePipe,
   ],
   imports: [
     BrowserModule,

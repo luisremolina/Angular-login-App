@@ -22,7 +22,7 @@
 
   <ng-container matColumnDef="precio">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.precio }} </mat-cell>
+    <mat-cell *matCellDef="let element">{{ element.precio | currency }} </mat-cell>
   </ng-container>
 
   <mat-header-row *matHeaderRowDef="desplegarColumnas"></mat-header-row>

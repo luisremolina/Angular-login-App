@@ -26,6 +26,7 @@ export class BookDialogComponent implements OnInit, OnDestroy {
   fechaPublicacion: string;
   autores: Autor[] = [];
   autorSuscripcion: Subscription;
+  imgFoto: string;
 
   @ViewChild(MatDatepicker) picker: MatDatepicker<Date>;
 
@@ -36,7 +37,7 @@ export class BookDialogComponent implements OnInit, OnDestroy {
   ) { }
 
   guardarLibro(form: NgForm) {
-    console.log(form.value);
+    // console.log(form.value);
     if (form.valid) {
       const autorRequest = {
         id: this.SelectAutor,
@@ -48,13 +49,19 @@ export class BookDialogComponent implements OnInit, OnDestroy {
         titulo: form.value.titulo,
         autor: autorRequest,
         precio: parseInt(form.value.precio),
-        fechaPublicacion: new Date(this.fechaPublicacion)
+        fechaPublicacion: new Date(this.fechaPublicacion),
+        imgFoto: this.imgFoto
       };
       this.bookServices.addBook(libroRequest);
       this.autorSuscripcion = this.bookServices.addBookListener().subscribe(() => {
         this.dialog.closeAll();
       });
     }
+  }
+
+  obtenerImagen(event):any{
+    this.imgFoto = "assets/img/" + event.target.files[0].name;
+    // console.log(this.imgFoto);
   }
 
   selected(event: MatSelectChange) {

@@ -4,10 +4,8 @@
 }
 
 .example-header-image {
-  /* background-image: url("assets/img/default.jpg"); */
-  /* background-image: url(); */
-  /* background-image: image("assets/img/default.jpg"); */
-  background-image: url('src/assets/img/default.jpg');
+
+  /* background-image: url('src/assets/img/default.jpg'); */
   background-size: cover;
 }
 .flex{
@@ -27,8 +25,11 @@
   /* padding: 5px; */
 }
 .margen{
-  margin: 10px;
+  margin: 5px;
 }
-.color{
-  /* color: #fff; */
+.cover{
+  background-size: cover;
+  width: 40px;
+  border-radius: 50px;
+  height: 40px;
 }

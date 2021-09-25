@@ -31,18 +31,7 @@
             <mat-error>Ingresa la descripcion del libro</mat-error>
           </mat-form-field>
 
-          <mat-form-field>
-            <mat-label>Precio</mat-label>
-            <input
-              type="number"
-              matInput
-              placeholder="Ejem: 500"
-              name="precio"
-              ngModel
-              required
-            />
-            <mat-error>Ingresa un precio</mat-error>
-          </mat-form-field>
+
 
           <mat-form-field>
             <mat-label>Seleccione autor</mat-label>
@@ -69,6 +58,34 @@
             </mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
+
+          <mat-form-field fxLayoutGap="15px">
+
+            <div class="margen"> <label>Foto de perfil *</label> </div>
+            <input
+              (change)="obtenerImagen($event)"
+              type="File"
+              matInput
+              name="imgFoto"
+              ngModel
+              required
+            />
+            <mat-error>Porfavor selecciona una imagen</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Precio</mat-label>
+            <input
+              type="number"
+              matInput
+              placeholder="Ejem: 500"
+              name="precio"
+              ngModel
+              required
+            />
+            <mat-error>Ingresa un precio</mat-error>
+          </mat-form-field>
+
         </div>
       </mat-card>
     </section>

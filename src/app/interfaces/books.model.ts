@@ -8,4 +8,5 @@ export interface Books {
     id: string;
     nombreCompleto: string;
   };
+  imgFoto: string;
 }

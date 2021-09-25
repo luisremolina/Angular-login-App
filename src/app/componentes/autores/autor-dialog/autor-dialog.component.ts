@@ -11,28 +11,40 @@ import { MatDialog } from '@angular/material/dialog';
       mat-form-field {
         width: 100%;
       }
+      .margen{
+        margin-bottom: 10px;
+      }
+      label{
+        color: rgba(0,0,0, .6);
+        /* color: blue; */
+      }
+
     `,
   ],
 })
 export class AutorDialogComponent implements OnInit {
   autorSuscripcion: Subscription;
+  imgFoto: string;
+  imgLogo: string;
   constructor(private autorServices: AutoresService, private dialog: MatDialog) { }
 
   ngOnInit(): void {
   }
 
   guardarAutor(form: NgForm) {
-    // console.log(form.valid);
     const nombreCompleto = form.value.nombre + ' ' + form.value.apellido;
-
+    console.log("antes del if");
+    console.log(form.valid);
     if (form.valid) {
+      console.log("entro al valid");
       const AutorRequest = {
         nombre: form.value.nombre,
         apellido: form.value.apellido,
         gradoAcademico: form.value.gradoAcademico,
         nombreCompleto: nombreCompleto,
-        imgLogo: 'assets/img/default.jpg',
-        imgFoto: 'assets/img/default.jpg'
+        imgLogo: this.imgLogo,
+        imgFoto: this.imgFoto,
+        genero: form.value.genero
 
       }
 
@@ -43,6 +55,17 @@ export class AutorDialogComponent implements OnInit {
       // });
     }
   }
+
+  obtenerImagen(event):any{
+    console.log(event.target.files[0].name);
+    this.imgFoto = "assets/img/" + event.target.files[0].name;
+  }
+
+  obtenerLogo(event):any{
+    console.log(event.target.files[0].name);
+    this.imgLogo = "assets/img/" + event.target.files[0].name;
+  }
+
 
 
 
