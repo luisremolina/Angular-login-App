@@ -24,6 +24,7 @@ import { AutorDialogComponent } from './componentes/autores/autor-dialog/autor-d
 import { TarjetaAutoresComponent } from './componentes/tarjeta-autores/tarjeta-autores.component';
 import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
+import { BooksDialogEditComponent } from './componentes/books/books-dialog-edit/books-dialog-edit.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { NoimagePipe } from './pipes/noimage.pipe';
     TarjetaAutoresComponent,
     TarjetaBooksComponent,
     NoimagePipe,
+    BooksDialogEditComponent,
   ],
   imports: [
     BrowserModule,

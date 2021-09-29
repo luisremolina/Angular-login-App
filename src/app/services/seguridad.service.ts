@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 
 @Injectable({
   providedIn: 'root'
@@ -88,8 +89,9 @@ export class SeguridadService {
 
     this.http.post<Usuario>(this.baseUrl + 'usuario/login', loginData)
       .subscribe((response) => {
-        this.token = response.token;
+        // console.log("El response es" + response);
 
+        this.token = response.token;
         this.usuario = {
           email: response.email,
           nombre: response.nombre,
@@ -99,9 +101,11 @@ export class SeguridadService {
           username: response.username,
           usuarioId: response.usuarioId
         };
+
         this.seguridadCambio.next(true);
         localStorage.setItem('token', response.token)
         this.route.navigate(['home']);
+
       });
 
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { SeguridadService } from '../../services/seguridad.service';
+import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 
 @Component({
   selector: 'app-login',
@@ -20,6 +21,17 @@ export class LoginComponent implements OnInit {
         email: form.value.email,
         password: form.value.password
       });
+      // if (logearse === undefined) {
+      //   console.log("si es undefined");
+      //   Swal.fire({
+      //     icon: 'error',
+      //     title: 'Oops...',
+      //     text: 'Verifica tus credenciales!'
+      //   });
+      // }else{
+      //   console.log("no es undefined");
+
+      // }
     }
   }
 

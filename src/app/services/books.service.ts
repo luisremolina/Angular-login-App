@@ -19,14 +19,14 @@ export class BooksService {
 
   constructor(private http: HttpClient) { }
 
-  getBooksWithoutPagination() {
+  getBooksWithoutPagination(): void {
     this.http.get(this.baseUrl + 'api/libros')
       .subscribe((response: Books[]) => {
         this.booksLista = response;
         this.bookSubject.next(this.booksLista);
       });
   }
-  getBooks(librosPorPagina: number, paginaActual: number, sort: string, sortDirection: string, filterValue: any) {
+  getBooks(librosPorPagina: number, paginaActual: number, sort: string, sortDirection: string, filterValue: any): void {
 
     const request = {
       pageSize: librosPorPagina,
@@ -35,7 +35,7 @@ export class BooksService {
       sortDirection,
       filterValue
     };
-    console.log(request);
+    // console.log(request);
     this.http.post<PaginationBooks>(this.baseUrl + 'api/libros/pagination', request)
       .subscribe((response) => {
         this.bookPagination = response;
@@ -43,7 +43,7 @@ export class BooksService {
       });
   }
 
-  getActualListener() {
+  getActualListener(): any {
     return this.bookPaginationSubject.asObservable();
   }
 
@@ -57,7 +57,15 @@ export class BooksService {
       });
 
   }
-  addBookListener() {
+
+  updateBook( id: string, book: Books): void{
+    this.http.put(this.baseUrl + `api/libros/${id}`, book)
+    .subscribe( (res) => {
+      this.bookSubject.next();
+    });
+  }
+
+  addBookListener(): any {
     return this.bookSubject.asObservable();
   }
 }

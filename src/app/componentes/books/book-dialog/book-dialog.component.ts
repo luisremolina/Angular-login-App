@@ -36,7 +36,7 @@ export class BookDialogComponent implements OnInit, OnDestroy {
     private autorService: AutoresService
   ) { }
 
-  guardarLibro(form: NgForm) {
+  guardarLibro(form: NgForm): void {
     // console.log(form.value);
     if (form.valid) {
       const autorRequest = {
@@ -59,13 +59,13 @@ export class BookDialogComponent implements OnInit, OnDestroy {
     }
   }
 
-  obtenerImagen(event):any{
-    this.imgFoto = "assets/img/" + event.target.files[0].name;
-    // console.log(this.imgFoto);
+  obtenerImagen(event): any{
+    this.imgFoto = 'assets/img/' + event.target.files[0].name;
   }
 
-  selected(event: MatSelectChange) {
+  selected(event: MatSelectChange): void {
     this.SelectAutorTexto = (event.source.selected as MatOption).viewValue;
+    // console.log(this.SelectAutorTexto);
   }
 
   ngOnInit(): void {

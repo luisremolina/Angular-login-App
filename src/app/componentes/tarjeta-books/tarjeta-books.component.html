@@ -1,7 +1,7 @@
 <div class="flex" >
   <mat-card class="example-card margen" *ngFor="let book of booksLista">
     <mat-card-header>
-      <div mat-card-avatar> <img class="cover" [src]="book.img | noimage" alt="..."> </div>
+      <div mat-card-avatar> <img class="cover" [src]="book.imgFoto | noimage" alt="..."> </div>
       <mat-card-title class="color"> {{book.titulo | uppercase }} </mat-card-title>
       <mat-card-subtitle class="color">{{book.autor.nombreCompleto}}</mat-card-subtitle>
     </mat-card-header >

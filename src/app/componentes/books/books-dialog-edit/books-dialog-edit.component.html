@@ -1,0 +1,68 @@
+<form #f="ngForm" (ngSubmit)="editarLibro(f)">
+  <h2 mat-dialog-title>Editar Libro</h2>
+
+  <mat-dialog-content>
+    <section fxLayoutAlign="center center" style="margin: 0px 10px">
+      <mat-card fxFlex="100%">
+        <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
+          <mat-form-field>
+            <mat-label>Ingrese titulo</mat-label>
+            <input type="text" matInput placeholder="Ejem: One Piece" name="titulo" [(ngModel)]="data.titulo"
+              required />
+            <mat-error>Por favor ingrese un titulo</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Ingrese descripcion</mat-label>
+            <input type="text" matInput placeholder="Ejem: Libro creado en 1999" name="descripcion"
+              [(ngModel)]="data.descripcion" required />
+            <mat-error>Ingresa la descripcion del libro</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Seleccione autor</mat-label>
+            <mat-select
+              [(ngModel)]="SelectAutor"
+              name="autor"
+              (selectionChange)="selected($event)"
+              required
+            >
+              <mat-option *ngFor="let autor of autores" [value]="autor._id">
+                {{ autor.nombre + " " + autor.apellido }}
+              </mat-option>
+            </mat-select>
+            <mat-error>Porfavor selecciona una autor</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <input matInput placeholder="Seleccione Fecha de Publicacion" [matDatepicker]="picker"
+              name="fechaPublicacion" [(ngModel)]="data.fechaPublicacion" />
+            <mat-datepicker-toggle matSuffix [for]="picker">
+            </mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+
+          <mat-form-field fxLayoutGap="15px">
+
+            <div class="margen"> <label>Foto de perfil *</label> </div>
+            <input (change)="obtenerImagen($event)" type="File" matInput name="imgFoto" ngModel
+              />
+
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Precio</mat-label>
+            <input type="number" matInput placeholder="Ejem: 500" name="precio" [(ngModel)]="data.precio" required />
+            <mat-error>Ingresa un precio</mat-error>
+          </mat-form-field>
+
+        </div>
+      </mat-card>
+    </section>
+  </mat-dialog-content>
+
+  <mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Cerrar</button>
+    <button mat-raised-button color="primary" type="submit">Actualizar</button>
+  </mat-dialog-actions>
+</form>

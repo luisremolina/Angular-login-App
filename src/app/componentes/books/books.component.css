@@ -3,5 +3,26 @@
   bottom: 45px;
   left: auto;
   position: absolute;
+}
 
+#btn-edit{
+  right: 120px;
+  bottom: 45px;
+  left: auto;
+  position: absolute;
+}
+.color{
+  color:red;
+}
+.boton{
+  cursor: pointer;
+}
+.tamaño{
+  width: 70px;
+  height: 70px;
+  border-radius: 40px;
+}
+.tamaño2{
+  max-width: 100px !important;
+  height: 100px;
 }
