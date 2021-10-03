@@ -1,26 +1,63 @@
-<div class="flex" >
-  <mat-card class="example-card margen" *ngFor="let book of booksLista">
-    <mat-card-header>
-      <div mat-card-avatar> <img class="cover" [src]="book.imgFoto | noimage" alt="..."> </div>
-      <mat-card-title class="color"> {{book.titulo | uppercase }} </mat-card-title>
-      <mat-card-subtitle class="color">{{book.autor.nombreCompleto}}</mat-card-subtitle>
-    </mat-card-header >
-    <div class="margen">
-
-      <img mat-card-image class="img" src="{{book.imgFoto | noimage}}" alt="Photo of a Shiba Inu">
+<div class="flex">
+  <mat-card class="example-card margenTargetas" *ngFor="let book of booksLista">
+    <div class="margenTargetas" (mouseenter)="mostrar(book)">
+      <img mat-card-image class="imagen" src="{{ book.imgFoto | noimage }}" alt="Photo of a Shiba Inu" />
+      <p class="texto">{{ book.titulo | slice: 0:25 }}</p>
     </div>
-    <mat-card-content>
-      <p class="color">
-        {{ book.descripcion}}
-      </p>
-      <span> {{book.precio}} </span>
-      <hr>
-      <span> {{book.fechaPublicacion | date}}</span>
-    </mat-card-content>
-    <mat-card-actions>
-      <button class="color" mat-button>LIKE</button>
-      <button class="color" mat-button>SHARE</button>
-    </mat-card-actions>
-  </mat-card>
 
+    <div (mouseleave)="salir()" class="contenedor" *ngIf="book._id === visible">
+      <h4 class="title">{{ book.titulo | uppercase }}</h4>
+      <div class="alinear">
+        <span class="precio">{{ book.precio | currency }} </span>
+        <span>{{ book.fechaPublicacion | date }}</span>
+      </div>
+      <p>{{ book.descripcion }}</p>
+      <img class="imgLogo" [src]="book.imgFoto" alt="..." />
+      <button>{{ book.autor.nombreCompleto }}</button>
+    </div>
+  </mat-card>
 </div>
+
+<!-- <section class="container">
+  <div class="row active-with-click">
+    <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let book of booksLista">
+      <article class="material-card Blue-Grey">
+        <h2>
+          <span> {{book.titulo | uppercase}} </span>
+          <strong class="alinearFooter">
+
+            <mat-icon> person_outline </mat-icon>
+            <span class="mleft-3">{{ book.autor.nombreCompleto }}</span>
+
+          </strong>
+        </h2>
+        <div class="mc-content">
+          <div class="img-container">
+            <img class="img-responsive imagen" src="assets/img/imgFoto-kakashi.jpg">
+          </div>
+          <div class="mc-description">
+            {{ book.descripcion }}
+          </div>
+        </div>
+        <a (click)="mostrarCard()" class="mc-btn-action">
+          <i class="fa fa-bars"></i>
+        </a>
+        <div class="mc-footer">
+
+          <div class="alinearFooter">
+            <mat-icon> event </mat-icon>
+            <span>{{ book.fechaPublicacion | date }}</span>
+          </div>
+
+          <div class="alinearFooter">
+            <mat-icon> attach_money </mat-icon>
+            <span>{{ book.precio | currency }} </span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+  </div>
+</section> -->
+
+

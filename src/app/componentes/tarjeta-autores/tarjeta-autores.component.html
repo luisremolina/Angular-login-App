@@ -1,23 +1,26 @@
-<div class="flex" >
-  <mat-card class="example-card margen" *ngFor="let autor of autores">
-    <mat-card-header>
-      <div mat-card-avatar> <img class="cover" src="{{autor.imgLogo}}" alt=""> </div>
-      <mat-card-title class="color"> {{autor.nombreCompleto | uppercase }} </mat-card-title>
-      <mat-card-subtitle class="color">{{autor.gradoAcademico}}</mat-card-subtitle>
-    </mat-card-header >
-    <div class="margen">
-
-      <img mat-card-image class="img" src="{{autor.imgFoto}}" alt="Photo of a Shiba Inu">
+<div #flex class="flex">
+  <mat-card *ngFor="let autor of autores">
+    <div #f class="contenedorCards" (mouseenter)="mostrar2(autor, f)">
+      <img class="imagen" src="{{ autor.imgFoto | noimage }}" alt="...." />
+      <div class="contenedor-texto">
+        <p class="texto-encima">{{ autor.nombreCompleto }}</p>
+      </div>
     </div>
-    <mat-card-content>
-      <p class="color">
-        Lorem ipsum dolor sit amet.
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-      <button class="color" mat-button>LIKE</button>
-      <button class="color" mat-button>SHARE</button>
-    </mat-card-actions>
+    <!-- *ngIf="autor._id === visible" -->
+    <div (mouseleave)="salir()" class="infoCard" [ngClass]="{'positionRigth': positionTs, 'positionLeft': !positionTs}" *ngIf="autor._id === visible">
+      <div class="alinearHeader">
+        <span class="nombreAutor">{{ autor.nombreCompleto }}</span>
+        <span class="alinearVerticalmente"> <mat-icon class="deleteMargin"> flag </mat-icon> <p class="deleteMargin">{{ autor.nacionalidad }}</p> </span>
+        <span class="alinearVerticalmente"> <mat-icon class="deleteMargin"> work </mat-icon> <p class="deleteMargin">{{ autor.ocupacion }}</p> </span>
+      </div>
+      <p>{{ autor.descripcion }}</p>
+      <div>
+        <!-- <P>{{autor.genero}}</P> -->
+        <h4>Generos</h4>
+        <ul>
+          <li *ngFor="let gener of autor.genero"> {{gener.name }} </li>
+        </ul>
+      </div>
+    </div>
   </mat-card>
-
 </div>

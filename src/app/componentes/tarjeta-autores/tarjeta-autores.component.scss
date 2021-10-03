@@ -1,0 +1,76 @@
+
+mat-card{
+  margin: auto;
+  margin-top: 5px;
+}
+
+.flex{
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+.nombreAutor{
+  font-size: 20px !important;
+}
+
+.contenedorCards{
+  width: 300px;
+  height: 420px;
+  background-color: #f2f2f2;
+  position: relative;
+  display: inline-block;
+}
+
+.imagen{
+  width: 90% !important;
+  height: 90% !important;
+  margin: 15px;
+  object-fit: cover;
+}
+.contenedor-texto{
+  position: absolute;
+  width: 100%;
+  height: 10%;
+  top: 90%;
+  left: 50%;
+  background-color: #f2f2f2;
+  transform: translate(-50%, -50%);
+  color: #333;
+}
+.contenedor-texto p{
+  margin-left: 13px;;
+}
+
+.infoCard{
+  // background-color: #222237;
+  width: 300px;
+  padding: 20px;
+  border-radius: 20px;
+  color: rgb(245, 245, 245, .4);
+  background-image: linear-gradient(135deg, #3c393c 0, #352d37 16.67%, #2b2232 33.33%, #20162d 50%, #140829 66.67%, #020026 83.33%, #000023 100%);
+}
+.positionRigth{
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  z-index: 10;
+}
+.positionLeft{
+  position: absolute;
+  top: 10%;
+  right: 90%;
+  z-index: 10;
+}
+.alinearHeader{
+  display: flex;
+  flex-direction: column;
+}
+.alinearVerticalmente{
+  display: flex;
+  align-items: center;
+}
+
+.deleteMargin{
+  margin: 0 !important;
+  padding: 0 !important;
+}

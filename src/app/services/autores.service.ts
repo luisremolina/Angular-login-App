@@ -52,7 +52,7 @@ export class AutoresService {
       sortDirection,
       filterValue
     };
-    console.log(request);
+    // console.log(request);
     this.http.post<PaginationAutors>(this.baseUrl + 'api/libreriaAutor/pagination', request)
       .subscribe((response) => {
         this.autorPagination = response;

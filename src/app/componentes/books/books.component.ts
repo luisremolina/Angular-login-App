@@ -81,7 +81,6 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
   }
 
   abrirDialogEdit(item): void {
-    // console.log(item);
     const dialogRef = this.dialog.open(BooksDialogEditComponent, {
       width: '550px',
       data: {

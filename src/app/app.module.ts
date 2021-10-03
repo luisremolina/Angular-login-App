@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LibroComponent } from './componentes/libro/libro.component';
 import { LibrosComponent } from './componentes/libros/libros.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './componentes/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './angular-material/material.module';
@@ -25,6 +25,7 @@ import { TarjetaAutoresComponent } from './componentes/tarjeta-autores/tarjeta-a
 import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books.component';
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { BooksDialogEditComponent } from './componentes/books/books-dialog-edit/books-dialog-edit.component';
+import { TarjetaPrototypeComponent } from './componentes/tarjeta-prototype/tarjeta-prototype.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { BooksDialogEditComponent } from './componentes/books/books-dialog-edit/
     TarjetaBooksComponent,
     NoimagePipe,
     BooksDialogEditComponent,
+    TarjetaPrototypeComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,7 +54,8 @@ import { BooksDialogEditComponent } from './componentes/books/books-dialog-edit/
     BrowserAnimationsModule,
     MaterialModule,
     FlexLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [{ provide: HTTP_INTERCEPTORS, useClass: SeguridadInterceptor, multi: true },,{provide: MAT_DATE_LOCALE, useValue: 'es-ES'}],
   bootstrap: [AppComponent]

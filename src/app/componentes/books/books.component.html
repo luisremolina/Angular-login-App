@@ -3,21 +3,21 @@
     <input matInput type="text" (keyup)="filtrar($event)" placeholder="Ingrese titulo del libro">
   </mat-form-field>
 </div>
-<mat-table [dataSource]="dataSource" matSort (matSortChange)="ordenarColumna($event)">
+<mat-table [dataSource]="dataSource" matSort (matSortChange)="ordenarColumna($event)" class="table">
 
   <ng-container matColumnDef="imgFoto" >
-    <mat-header-cell class="tamaño2" *matHeaderCellDef mat-sort-header> Foto de perfil </mat-header-cell>
-    <mat-cell  class="tamaño2" *matCellDef="let element"> <img class="tamaño" src="{{element.imgFoto}}" alt=""> </mat-cell>
+    <mat-header-cell class="tamañoFoto" *matHeaderCellDef mat-sort-header> Foto de perfil </mat-header-cell>
+    <mat-cell  class="tamañoFoto" *matCellDef="let element"> <img class="imgFoto" src="{{element.imgFoto}}" alt=""> </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="titulo">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.titulo }} </mat-cell>
+    <mat-cell *matCellDef="let element"> {{ element.titulo }} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="descripcion">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.descripcion }} </mat-cell>
+  <ng-container  matColumnDef="descripcion">
+    <mat-header-cell class="tamañoDescripcion"  *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+    <mat-cell class="tamañoDescripcion clase" *matCellDef="let element"> {{ element.descripcion }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="autor">
@@ -32,7 +32,7 @@
 
   <ng-container matColumnDef="opciones">
     <mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
-    <mat-cell *matCellDef="let element">
+    <mat-cell *matCellDef="let element" class="tamaño">
        <mat-icon (click)="abrirDialogEdit(element)" class="boton">edit</mat-icon>
        <mat-icon (click)="abrirDialog(element)" class="color boton">delete</mat-icon>
     </mat-cell>

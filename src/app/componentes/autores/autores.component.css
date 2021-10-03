@@ -1,0 +1,53 @@
+#btn-agg {
+  bottom: 45px;
+  right: 45px;
+  position: fixed;
+}
+.estilosFoto{
+width: 70px;
+height: 70px;
+border-radius: 40px;
+}
+
+.titulo{
+text-align: center;
+font-weight: 500;
+color: #3D56B2;
+font-family: 'Press Start 2P', cursive;
+margin-bottom: 30px;
+}
+
+.tamañoFoto{
+  max-width: 10% !important;
+}
+.tamañoNombre{
+  max-width: 15% !important;
+}
+.tamañoOcupacion{
+  max-width: 15% !important;
+}
+.tamañoDescripcion{
+  max-width: 35% !important;
+  margin: 10px !important;
+}
+.tamañoObras{
+  max-width: 15% !important;
+  margin-right: 20px !important;
+}
+.tamañoOpciones{
+  max-width: 10% !important;
+}
+.parrafo{
+  text-align: justify;
+}
+.btnDelete{
+  color: red;
+  cursor: pointer;
+}
+.btnEdit{
+  color: blue;
+  cursor: pointer;
+}
+
+/* ---------------------------- */
+

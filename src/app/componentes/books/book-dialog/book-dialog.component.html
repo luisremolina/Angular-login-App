@@ -38,7 +38,7 @@
             <mat-select
               [(ngModel)]="SelectAutor"
               name="autor"
-              (selectionChange)="selected($event)"
+              (selectionChange)="selected2($event)"
             >
               <mat-option *ngFor="let autor of autores" value="autor._id">
                 {{ autor.nombre + " " + autor.apellido }}
@@ -84,6 +84,35 @@
               required
             />
             <mat-error>Ingresa un precio</mat-error>
+          </mat-form-field>
+
+          <mat-form-field>
+            <mat-label>Generos</mat-label>
+            <mat-chip-list #chipList aria-label="Fruit selection">
+              <mat-chip
+                *ngFor="let fruit of fruits"
+                [selectable]="selectable"
+                [removable]="removable"
+                (removed)="remove(fruit)">
+                {{fruit}}
+                <!-- <button matChipRemove *ngIf="removable"> -->
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+                <!-- </button> -->
+              </mat-chip>
+              <input
+                placeholder="Nuevo Genero...."
+                #fruitInput
+                [formControl]="fruitCtrl"
+                [matAutocomplete]="auto"
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+            <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+              <mat-option *ngFor="let fruit of filteredFruits | async" [value]="fruit">
+                {{fruit}}
+              </mat-option>
+            </mat-autocomplete>
           </mat-form-field>
 
         </div>

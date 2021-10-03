@@ -35,7 +35,6 @@ export class BooksService {
       sortDirection,
       filterValue
     };
-    // console.log(request);
     this.http.post<PaginationBooks>(this.baseUrl + 'api/libros/pagination', request)
       .subscribe((response) => {
         this.bookPagination = response;

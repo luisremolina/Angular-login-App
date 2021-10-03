@@ -1,31 +1,45 @@
-<div class="centrar">
+<!-- <div class="centrar">
   <h1 class="titulo"> Listado de Autores</h1>
-</div>
+</div> -->
 <div fxLayoutAlign="center center">
   <mat-form-field fxFlex="60%">
-    <input matInput type="text" (keyup)="filtrar($event)" placeholder="Ingrese texto">
+    <input matInput type="text" (keyup)="filtrar($event)" placeholder="Ingrese nombre del autor">
   </mat-form-field>
 </div>
-<mat-table [dataSource] = "dataSource" matSort (matSortChange)="ordenarColumna($event)">
+<mat-table [dataSource]="dataSource" matSort (matSortChange)="ordenarColumna($event)">
 
-  <ng-container matColumnDef="imgLogo" >
-    <mat-header-cell class="tamaño2" *matHeaderCellDef mat-sort-header> Foto de perfil </mat-header-cell>
-    <mat-cell  class="tamaño2" *matCellDef="let element"> <img class="tamaño" src="{{element.imgLogo}}" alt=""> </mat-cell>
+  <ng-container matColumnDef="imgFogo">
+    <mat-header-cell class="tamañoFoto" *matHeaderCellDef mat-sort-header> Foto de perfil </mat-header-cell>
+    <mat-cell class="tamañoFoto" *matCellDef="let element"> <img class="estilosFoto" src="{{element.imgFoto}}"
+        alt="..."> </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="nombre">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Nombre del autor </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.nombreCompleto}} </mat-cell>
+  <ng-container matColumnDef="nombreCompleto">
+    <mat-header-cell class="tamañoNombre" *matHeaderCellDef mat-sort-header> Nombre del autor </mat-header-cell>
+    <mat-cell class="tamañoNombre" *matCellDef="let element"> {{element.nombreCompleto}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="genero">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Obras </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.genero}} </mat-cell>
+  <ng-container matColumnDef="ocupacion">
+    <mat-header-cell class="tamañoOcupacion" *matHeaderCellDef mat-sort-header> Ocupacion </mat-header-cell>
+    <mat-cell class="tamañoOcupacion" *matCellDef="let element"> {{element.ocupacion}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="gradoAcademico">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Profesion </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{element.gradoAcademico}} </mat-cell>
+  <ng-container matColumnDef="descripcion">
+    <mat-header-cell class="tamañoDescripcion" *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+    <mat-cell class="tamañoDescripcion" *matCellDef="let element"> <span class="parrafo">{{element.descripcion}}</span> </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="obrasDestacadas">
+    <mat-header-cell class="tamañoObras" *matHeaderCellDef mat-sort-header> Obras Destacadas </mat-header-cell>
+    <mat-cell class="tamañoObras" *matCellDef="let element"> {{element.obrasDestacadas}} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="opciones">
+    <mat-header-cell class="tamañoOpciones" *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
+    <mat-cell class="tamañoOpciones" *matCellDef="let element">
+       <mat-icon class="btnEdit" (click)="abrirDialogEdit(element)">edit</mat-icon>
+       <mat-icon class="btnDelete" (click)="abrirDialog(element)">delete</mat-icon>
+    </mat-cell>
   </ng-container>
 
 
@@ -35,7 +49,8 @@
 
 </mat-table>
 
-<mat-paginator (page)="eventoPaginador($event)" #paginacion fxLayoutAlign="center center" [pageSize]="librosPorPagina" [pageSizeOptions]="paginaCombo" [length]="totalLibros">
+<mat-paginator (page)="eventoPaginador($event)" #paginacion fxLayoutAlign="center center" [pageSize]="librosPorPagina"
+  [pageSizeOptions]="paginaCombo" [length]="totalLibros">
 </mat-paginator>
 
 <button mat-fab id="btn-agg" color="warn" (click)="abrirDialog()">

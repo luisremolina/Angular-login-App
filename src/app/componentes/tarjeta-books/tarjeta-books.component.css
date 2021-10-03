@@ -1,35 +1,93 @@
 
 .example-card {
   max-width: 400px;
+
 }
 
-.example-header-image {
-
-  /* background-image: url('src/assets/img/default.jpg'); */
-  background-size: cover;
-}
 .flex{
   display: flex;
   flex-wrap: wrap;
+
 }
-.margen{
-  margin: 5px;
-  background-color: #f2f2f2;
+
+.imagen{
+  /* width: 220px;
+  height: 325px;
+  border-radius: 7px !important;
+  margin-bottom: 0; */
+
+  width: 100%;
+  height: 100%;
+  /* object-fit: scale-down; */
+}
+.margenTargetas{
+  margin: 6px !important;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+
+.texto{
+  text-align: center;
+  font-weight: 400;
+  font-size: 17px;
+  margin-top: 5px;;
+  flex-wrap: wrap;
+}
+
+mat-card{
+  height: 310px;
+}
+
+.imgLogo{
+  width: 30px;
+  margin-right: 5px;
 }
 
 .contenedor{
-  background: #333;
+  background-color: #385E72;
+  padding: 14px !important;
+  color: #B7CFDC;
+  border-radius: 15px;
+  position:  absolute;
+  z-index: 10;
+  left: 240px;
+  width: 270px;
 }
-.img{
-  height: 500px;
-  /* padding: 5px; */
+
+.colorTenue{
+  color: #B7CFDC;
 }
-.margen{
-  margin: 5px;
+.title{
+  color: #fff;
 }
-.cover{
-  background-size: cover;
-  width: 40px;
-  border-radius: 50px;
-  height: 40px;
+.alinear{
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 10px;
+}
+.precio{
+  background: #6468AC;
+  border-radius: 4px;
+  padding: 0px 10px;
+  padding-top: 2px;
+  color: #000;
+  cursor: pointer;
+}
+.precio:hover{
+  background: #9094CB;
+}
+
+.alinearFooter{
+  display: flex;
+  align-items: center;
+}
+
+.alinearFooter span{
+  margin-left: 3px;
+}
+.mleft-3{
+  margin-left: 5px !important;
 }

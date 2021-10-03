@@ -2,27 +2,41 @@
   right: 45px;
   bottom: 45px;
   left: auto;
-  position: absolute;
+  position: fixed;
 }
 
-#btn-edit{
-  right: 120px;
-  bottom: 45px;
-  left: auto;
-  position: absolute;
-}
+
 .color{
   color:red;
 }
 .boton{
   cursor: pointer;
 }
-.tamaño{
+
+.tamañoDescripcion {
+  max-width: 500px !important;
+}
+
+.tamañoFoto{
+  max-width: 100px !important;
+  height: 100px;
+}
+.imgFoto{
   width: 70px;
   height: 70px;
   border-radius: 40px;
 }
-.tamaño2{
-  max-width: 100px !important;
-  height: 100px;
+
+.clase{
+  Word-wrap: break-Word !important;
+  Word-break: break-Word;
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
+.tabla{
+  width: 100%;
+  margin-bottom: 0;
+}
+

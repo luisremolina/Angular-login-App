@@ -13,8 +13,53 @@ export class TarjetaBooksComponent implements OnInit, OnDestroy {
 
   private booksSuscription: Subscription;
   booksLista: Books[] = [];
+  visible = "";
 
-  constructor(private booksService: BooksService) { }
+  constructor(private booksService: BooksService) { this.mostrarCard(); }
+
+
+  // mostrar() {
+  //   $(function () {
+  //     var card = $(this).parent('.material-card');
+  //     var icon = $(this).children('i');
+  //     icon.addClass('fa-spin-fast');
+  //   });
+  // }
+
+  mostrarCard() {
+    $(function () {
+      $('.material-card > .mc-btn-action').click(function () {
+        var card = $(this).parent('.material-card');
+        var icon = $(this).children('i');
+        icon.addClass('fa-spin-fast');
+
+        if (card.hasClass('mc-active')) {
+          card.removeClass('mc-active');
+
+          window.setTimeout(function () {
+            icon
+              .removeClass('fa-arrow-left')
+              .removeClass('fa-spin-fast')
+              .addClass('fa-bars');
+
+          }, 800);
+        } else {
+          card.addClass('mc-active');
+          window.setTimeout(function () {
+            icon
+              .removeClass('fa-bars')
+              .removeClass('fa-spin-fast')
+              .addClass('fa-arrow-left');
+
+          }, 800);
+        }
+      });
+    });
+  }
+
+  salir() {
+    this.visible = "";
+  }
 
   ngOnInit(): void {
 
@@ -26,13 +71,13 @@ export class TarjetaBooksComponent implements OnInit, OnDestroy {
     Swal.showLoading();
 
     this.booksService.getBooksWithoutPagination();
-    this.booksSuscription = this.booksService.addBookListener().subscribe( (data: Books[]) =>{
+    this.booksSuscription = this.booksService.addBookListener().subscribe((data: Books[]) => {
       this.booksLista = data;
       Swal.close();
     });
 
   }
-  ngOnDestroy(): void{
+  ngOnDestroy(): void {
     this.booksSuscription.unsubscribe();
   }
 

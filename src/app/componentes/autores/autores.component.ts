@@ -12,36 +12,7 @@ import { AutorDialogComponent } from './autor-dialog/autor-dialog.component';
 @Component({
   selector: 'app-autores',
   templateUrl: './autores.component.html',
-  styles: [
-    `
-        #btn-agg {
-        bottom: 45px;
-        right: 45px;
-        position: fixed;
-
-    }
-    .tamaño{
-      width: 70px;
-      height: 70px;
-      border-radius: 40px;
-    }
-    .tamaño2{
-      max-width: 100px !important;
-      height: 100px;
-    }
-    .titulo{
-      text-align: center;
-      font-weight: 500;
-      color: #3D56B2;
-      font-family: 'Press Start 2P', cursive;
-      margin-bottom: 30px;
-    }
-    .centrar{
-     /* margin: 30px; */
-
-    }
-`
-  ]
+  styleUrls: ['./autores.component.css']
 })
 export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
   totalLibros = 0;
@@ -51,12 +22,11 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
   sort = 'titulo';
   sortDirection = 'asc';
   filterValue = {};
-
   @ViewChild(MatSort) ordenamiento: MatSort;
   @ViewChild(MatPaginator) paginacion: MatPaginator;
   timeOut: any = null;
 
-  desplegarColumnas = ['imgLogo' ,'nombre', 'gradoAcademico', 'genero'];
+  desplegarColumnas = ['imgFogo' , 'nombreCompleto', 'ocupacion', 'descripcion', 'obrasDestacadas', 'opciones'];
   dataSource = new MatTableDataSource<Autor>();
   private autoresSuscripcion = new Subscription;
 
@@ -77,6 +47,7 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
         this.totalLibros = pagination.totalRows;
       });
   }
+
   ngOnDestroy(): void {
     this.autoresSuscripcion.unsubscribe();
   }
@@ -90,10 +61,30 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
       .subscribe(() => {
         this.autoresServices.getAutores();
         this.autoresSuscripcion = this.autoresServices.getActualListener()
-      .subscribe((autores: Autor[]) => {
+        .subscribe((autores: Autor[]) => {
         this.dataSource.data = autores;
       });
       });
+  }
+
+  abrirDialogEdit(item): void {
+    const dialogRef = this.dialog.open(AutorDialogComponent, {
+      width: '550px',
+      data: {
+        _id: item._id,
+        nombreCompleto: item.autor,
+        descripcion: item.descripcion,
+        imgFoto: item.imgFoto,
+      }
+    });
+    // dialogRef.afterClosed()
+    // .subscribe(() => {
+    //   this.autoresServices.getAutores();
+    //   this.autoresSuscripcion = this.autoresServices.getActualListener()
+    //   .subscribe((autores: Autor[]) => {
+    //   this.dataSource.data = autores;
+    // });
+    // });
   }
 
   filtrar(event: any): void {
@@ -102,7 +93,7 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
     this.timeOut = setTimeout(() => {
       if (event.keyCode !== 13) {
         const filterValueLocal = {
-          propiedad: 'nombre',
+          propiedad: 'nombreCompleto',
           valor: event.target.value
         };
         $this.filterValue = filterValueLocal;
@@ -118,6 +109,7 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
       }
     }, 1000);
   }
+
   eventoPaginador(event: PageEvent): void {
     this.librosPorPagina = event.pageSize;
     this.paginaActual = event.pageIndex + 1;
@@ -130,7 +122,7 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
     );
   }
 
-  ordenarColumna(event) {
+  ordenarColumna(event): void {
     this.sort = event.active;
     this.sortDirection = event.direction;
     this.autoresServices.getAutorPagination(
@@ -141,6 +133,7 @@ export class AutoresComponent implements OnInit, OnDestroy, AfterViewInit {
       this.filterValue
     );
   }
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.ordenamiento;
     this.dataSource.paginator = this.paginacion;

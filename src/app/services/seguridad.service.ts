@@ -5,8 +5,6 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
-import Swal from 'sweetalert2/dist/sweetalert2.all.js';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -71,26 +69,12 @@ export class SeguridadService {
         localStorage.setItem('token', response.token)
         this.route.navigate(['home']);
       });
-    // this.usuario = {
-    //   email: usr.email,
-    //   usuarioId: Math.round(Math.random() * 10000).toString(),
-    //   nombre: usr.nombre,
-    //   apellidos: usr.apellidos,
-    //   username: usr.username,
-    //   password: usr.password,
-    //   token: usr.token
-    // }
-    // this.seguridadCambio.next(true);
-
-    // this.route.navigate(['home']);
   }
 
   login(loginData: Login): void {
 
     this.http.post<Usuario>(this.baseUrl + 'usuario/login', loginData)
       .subscribe((response) => {
-        // console.log("El response es" + response);
-
         this.token = response.token;
         this.usuario = {
           email: response.email,
@@ -101,13 +85,11 @@ export class SeguridadService {
           username: response.username,
           usuarioId: response.usuarioId
         };
-
         this.seguridadCambio.next(true);
         localStorage.setItem('token', response.token)
         this.route.navigate(['home']);
 
       });
-
   }
 
   cerrarSesion() {
@@ -115,7 +97,6 @@ export class SeguridadService {
     this.seguridadCambio.next(false);
     localStorage.removeItem('token');
     this.route.navigate(['login']);
-
   }
 
   obtenerUsuario() {
@@ -125,7 +106,4 @@ export class SeguridadService {
   estaAutenticado() {
     return this.token != null;
   }
-
-
-
 }

@@ -6,12 +6,12 @@
       <mat-card fxFlex="100%">
         <div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="15px">
           <mat-form-field>
-            <mat-label>Ingrese Nombre</mat-label>
+            <mat-label>Nombre del autor</mat-label>
             <input
               type="text"
               matInput
               placeholder="Ejem: Luis"
-              name="nombre"
+              name="nombreCompleto"
               ngModel
               required
             />
@@ -19,40 +19,45 @@
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Ingrese Apellido</mat-label>
+            <mat-label> Nacionalidad</mat-label>
             <input
               type="text"
               matInput
-              placeholder="Ejem: Remolina"
-              name="apellido"
+              placeholder="Nacionalidad"
+              name="nacionalidad"
               ngModel
               required
             />
-            <mat-error>Ingresa la apellido</mat-error>
+            <mat-error>Ingresa la nacionalidad del autor</mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label>Grado Academico</mat-label>
-            <input
+            <mat-label> Descripcion </mat-label>
+            <textarea matInput
               type="text"
               matInput
-              name="gradoAcademico"
+              name="descripcion"
               ngModel
               required
-            />
-            <mat-error>Ingresa un Grado academico</mat-error>
+              rows="8"
+            >
+
+            </textarea>
+
+
+            <mat-error>Ingresa una descripcion</mat-error>
           </mat-form-field>
 
           <mat-form-field>
-            <mat-label> Obras </mat-label>
+            <mat-label> Ocupacion </mat-label>
             <input
               type="text"
               matInput
-              name="genero"
+              name="ocupacion"
               ngModel
               required
             />
-            <mat-error>Ingresa una obra del autor</mat-error>
+            <mat-error>Ingresa la ocupacion del autor</mat-error>
           </mat-form-field>
 
           <mat-form-field fxLayoutGap="15px">
@@ -70,18 +75,36 @@
           </mat-form-field>
 
           <mat-form-field>
-            <div class="margen"> <label >Foto de Logo *</label> </div>
-
+            <mat-label> Obras Destacadas </mat-label>
             <input
-              (change)="obtenerLogo($event)"
-              type="File"
+              type="text"
               matInput
-              name="imgLogo"
+              name="obrasDestacadas"
               ngModel
               required
             />
-            <mat-error>Porfavor selecciona una imagen</mat-error>
+            <mat-error>Ingresa al menos una obra</mat-error>
           </mat-form-field>
+
+          <mat-form-field class="example-chip-list" appearance="fill">
+            <mat-label>Generos</mat-label>
+            <mat-chip-list #chipList aria-label="Genero selection">
+              <mat-chip *ngFor="let genero of generos" [selectable]="selectable"
+                       [removable]="removable" (removed)="remove(genero)">
+                {{genero.name}}
+                  <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+              </mat-chip>
+              <input
+                     name="generosInput"
+                     [(ngModel)] = "generosInput"
+                     placeholder=""
+                     [matChipInputFor]="chipList"
+                     [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                     [matChipInputAddOnBlur]="addOnBlur"
+                     (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+          </mat-form-field>
+
 
         </div>
       </mat-card>
