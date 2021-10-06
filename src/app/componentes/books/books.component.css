@@ -5,22 +5,48 @@
   position: fixed;
 }
 
-
-.color{
+.botonDelete{
+  cursor: pointer;
   color:red;
 }
-.boton{
+
+.botonUpdate{
   cursor: pointer;
+  color: blue;
+}
+
+
+
+.tamañoFoto{
+  max-width: 10%;
+}
+
+.tamañoTitulo{
+  max-width: 15%;
 }
 
 .tamañoDescripcion {
-  max-width: 500px !important;
+  max-width: 30%;
+  margin-right: 20px;
 }
 
-.tamañoFoto{
-  max-width: 100px !important;
-  height: 100px;
+.tamañoAutor{
+  max-width: 15%;
 }
+
+.tamañoPrecio{
+  max-width: 13%;
+}
+
+.tamañoFecha{
+  max-width: 12%;
+}
+
+.tamañoOpciones{
+  max-width: 5%;
+}
+
+
 .imgFoto{
   width: 70px;
   height: 70px;
@@ -28,7 +54,7 @@
 }
 
 .clase{
-  Word-wrap: break-Word !important;
+  Word-wrap: break-Word;
   Word-break: break-Word;
   -ms-hyphens: auto;
   -moz-hyphens: auto;

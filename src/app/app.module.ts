@@ -26,6 +26,8 @@ import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books
 import { NoimagePipe } from './pipes/noimage.pipe';
 import { BooksDialogEditComponent } from './componentes/books/books-dialog-edit/books-dialog-edit.component';
 import { TarjetaPrototypeComponent } from './componentes/tarjeta-prototype/tarjeta-prototype.component';
+import { DescriptionPipe } from './pipes/description.pipe';
+import { AutorDialogEditComponent } from './componentes/autores/autor-dialog-edit/autor-dialog-edit.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +48,8 @@ import { TarjetaPrototypeComponent } from './componentes/tarjeta-prototype/tarje
     NoimagePipe,
     BooksDialogEditComponent,
     TarjetaPrototypeComponent,
+    DescriptionPipe,
+    AutorDialogEditComponent,
   ],
   imports: [
     BrowserModule,

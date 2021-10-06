@@ -16,7 +16,7 @@ mat-card{
 .contenedorCards{
   width: 300px;
   height: 420px;
-  background-color: #f2f2f2;
+  // background-color: #f2f2f2;
   position: relative;
   display: inline-block;
 }
@@ -41,8 +41,9 @@ mat-card{
   margin-left: 13px;;
 }
 
+// ESTILOS PARA LA CARD DE INFO
+
 .infoCard{
-  // background-color: #222237;
   width: 300px;
   padding: 20px;
   border-radius: 20px;
@@ -73,4 +74,8 @@ mat-card{
 .deleteMargin{
   margin: 0 !important;
   padding: 0 !important;
+}
+.verMas{
+  color: #fff;
+  cursor: pointer;
 }

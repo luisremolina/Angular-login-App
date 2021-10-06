@@ -1,63 +1,38 @@
-<div class="flex">
-  <mat-card class="example-card margenTargetas" *ngFor="let book of booksLista">
-    <div class="margenTargetas" (mouseenter)="mostrar(book)">
-      <img mat-card-image class="imagen" src="{{ book.imgFoto | noimage }}" alt="Photo of a Shiba Inu" />
-      <p class="texto">{{ book.titulo | slice: 0:25 }}</p>
-    </div>
+<!--  -->
 
-    <div (mouseleave)="salir()" class="contenedor" *ngIf="book._id === visible">
-      <h4 class="title">{{ book.titulo | uppercase }}</h4>
-      <div class="alinear">
-        <span class="precio">{{ book.precio | currency }} </span>
-        <span>{{ book.fechaPublicacion | date }}</span>
+<div #flex class="flex">
+  <mat-card *ngFor="let book of booksLista">
+    <div #f class="contenedorCards" (mouseenter)="mostrarCard(book, f)">
+      <img class="imagen" src="{{ book.imgFoto | noimage }}" alt="...." />
+      <div class="contenedor-texto">
+        <p>{{ book.titulo }}</p>
       </div>
-      <p>{{ book.descripcion }}</p>
-      <img class="imgLogo" [src]="book.imgFoto" alt="..." />
-      <button>{{ book.autor.nombreCompleto }}</button>
+    </div>
+    <!-- *ngIf="autor._id === visible" -->
+    <div (mouseleave)="salir()" class="infoCard animated fadeIn"
+      [ngClass]="{'positionRigth': positionTs, 'positionLeft': !positionTs}" *ngIf="book._id === visible">
+      <div class="alinearHeader">
+        <span class="nombreTitulo">{{ book.titulo }}</span>
+        <span class="alinearVerticalmente">
+          <mat-icon class="deleteMargin"> attach_money </mat-icon>
+          <p class="deleteMargin">{{ book.precio }}</p>
+        </span>
+        <span class="alinearVerticalmente">
+          <mat-icon class="deleteMargin"> date_range </mat-icon>
+          <p class="deleteMargin">{{ book.fechaPublicacion | date }}</p>
+        </span>
+      </div>
+
+      <p>{{ book.descripcion }} </p>
+
+      <!-- <p *ngFor="let genero of generos">{{ genero.nombre }} </p> -->
+
+      <div>
+        <span class="alinearVerticalmente">
+          <mat-icon class="deleteMargin"> person </mat-icon>
+          <p class="deleteMargin">{{book.autor.nombreCompleto}}</p>
+        </span>
+      </div>
     </div>
   </mat-card>
 </div>
-
-<!-- <section class="container">
-  <div class="row active-with-click">
-    <div class="col-md-4 col-sm-6 col-xs-12" *ngFor="let book of booksLista">
-      <article class="material-card Blue-Grey">
-        <h2>
-          <span> {{book.titulo | uppercase}} </span>
-          <strong class="alinearFooter">
-
-            <mat-icon> person_outline </mat-icon>
-            <span class="mleft-3">{{ book.autor.nombreCompleto }}</span>
-
-          </strong>
-        </h2>
-        <div class="mc-content">
-          <div class="img-container">
-            <img class="img-responsive imagen" src="assets/img/imgFoto-kakashi.jpg">
-          </div>
-          <div class="mc-description">
-            {{ book.descripcion }}
-          </div>
-        </div>
-        <a (click)="mostrarCard()" class="mc-btn-action">
-          <i class="fa fa-bars"></i>
-        </a>
-        <div class="mc-footer">
-
-          <div class="alinearFooter">
-            <mat-icon> event </mat-icon>
-            <span>{{ book.fechaPublicacion | date }}</span>
-          </div>
-
-          <div class="alinearFooter">
-            <mat-icon> attach_money </mat-icon>
-            <span>{{ book.precio | currency }} </span>
-          </div>
-        </div>
-      </article>
-    </div>
-
-  </div>
-</section> -->
-
-

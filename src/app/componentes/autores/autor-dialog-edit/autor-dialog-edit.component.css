@@ -1,0 +1,13 @@
+mat-form-field {
+  width: 100%;
+}
+.margen{
+  margin-bottom: 10px;
+}
+label{
+  color: rgba(0,0,0, .6);
+  /* color: blue; */
+}
+.example-chip-list {
+  width: 100%;
+}

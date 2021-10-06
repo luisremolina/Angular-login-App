@@ -32,19 +32,14 @@ export class AutoresService {
   }
 
   addAutor(usr: Autor): void {
-
     this.http.post(this.baseUrl + 'api/libreriaAutor', usr)
-    .subscribe((response)=>{
-
+    .subscribe((response) => {
       this.autoresSubject.next();
-
     });
 
   }
 
-
   getAutorPagination(librosPorPagina: number, paginaActual: number, sort: string, sortDirection: string, filterValue: any) {
-
     const request = {
       pageSize: librosPorPagina,
       page: paginaActual,
@@ -52,11 +47,25 @@ export class AutoresService {
       sortDirection,
       filterValue
     };
-    // console.log(request);
     this.http.post<PaginationAutors>(this.baseUrl + 'api/libreriaAutor/pagination', request)
       .subscribe((response) => {
         this.autorPagination = response;
         this.autorPaginationSubject.next(this.autorPagination);
       });
   }
+
+  deleteAutor(id){
+    this.http.delete(this.baseUrl + `api/libreriaAutor/${id}`)
+    .subscribe(res =>{
+      this.autoresSubject.next([...this.autoresLista]);
+    });
+  }
+
+  updateAutor(id: string, data: Autor){
+    this.http.put(this.baseUrl + `api/libreriaAutor/${id}`, data)
+    .subscribe( (res) => {
+      this.autoresSubject.next();
+    });
+  }
+
 }

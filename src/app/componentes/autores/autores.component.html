@@ -8,37 +8,39 @@
 </div>
 <mat-table [dataSource]="dataSource" matSort (matSortChange)="ordenarColumna($event)">
 
-  <ng-container matColumnDef="imgFogo">
+  <ng-container matColumnDef="imgFoto">
     <mat-header-cell class="tamañoFoto" *matHeaderCellDef mat-sort-header> Foto de perfil </mat-header-cell>
-    <mat-cell class="tamañoFoto" *matCellDef="let element"> <img class="estilosFoto" src="{{element.imgFoto}}"
+    <mat-cell class="tamañoFoto" *matCellDef="let element" data-label="Foto"> <img class="estilosFoto" src="{{element.imgFoto}}"
         alt="..."> </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="nombreCompleto">
     <mat-header-cell class="tamañoNombre" *matHeaderCellDef mat-sort-header> Nombre del autor </mat-header-cell>
-    <mat-cell class="tamañoNombre" *matCellDef="let element"> {{element.nombreCompleto}} </mat-cell>
+    <mat-cell class="tamañoNombre" *matCellDef="let element" data-label="Nombre"> {{element.nombreCompleto}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="ocupacion">
     <mat-header-cell class="tamañoOcupacion" *matHeaderCellDef mat-sort-header> Ocupacion </mat-header-cell>
-    <mat-cell class="tamañoOcupacion" *matCellDef="let element"> {{element.ocupacion}} </mat-cell>
+    <mat-cell class="tamañoOcupacion" *matCellDef="let element" data-label="Ocupacion"> {{element.ocupacion}} </mat-cell>
   </ng-container>
 
-  <ng-container matColumnDef="descripcion">
+  <ng-container matColumnDef="descripcion" class="descripcion">
     <mat-header-cell class="tamañoDescripcion" *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
-    <mat-cell class="tamañoDescripcion" *matCellDef="let element"> <span class="parrafo">{{element.descripcion}}</span> </mat-cell>
+    <mat-cell class="tamañoDescripcion" *matCellDef="let element" data-label="descripcion">
+      <span class="parrafo">{{element.descripcion | slice:0:fin }} <a class="Descripcion" (click) = "fin = verDescripcion(element)">{{ verOption }}</a> </span>
+    </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="obrasDestacadas">
     <mat-header-cell class="tamañoObras" *matHeaderCellDef mat-sort-header> Obras Destacadas </mat-header-cell>
-    <mat-cell class="tamañoObras" *matCellDef="let element"> {{element.obrasDestacadas}} </mat-cell>
+    <mat-cell class="tamañoObras" *matCellDef="let element" data-label="obras"> {{element.obrasDestacadas}} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="opciones">
     <mat-header-cell class="tamañoOpciones" *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
-    <mat-cell class="tamañoOpciones" *matCellDef="let element">
+    <mat-cell class="tamañoOpciones" *matCellDef="let element" data-label="opciones">
        <mat-icon class="btnEdit" (click)="abrirDialogEdit(element)">edit</mat-icon>
-       <mat-icon class="btnDelete" (click)="abrirDialog(element)">delete</mat-icon>
+       <mat-icon class="btnDelete" (click)="eliminarAutor(element)">delete</mat-icon>
     </mat-cell>
   </ng-container>
 

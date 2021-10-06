@@ -1,6 +1,6 @@
 <form #f="ngForm" (ngSubmit)="guardarAutor(f)">
   <div class="centrar">
-    <h2 mat-dialog-title>Agregar nuevo Autor</h2>
+    <h1 mat-dialog-title>Actualizar autor</h1>
   </div>
 
   <mat-dialog-content>
@@ -14,7 +14,7 @@
               matInput
               placeholder="Ejem: Luis"
               name="nombreCompleto"
-              ngModel
+              [(ngModel)]="data.nombreCompleto"
               required
             />
             <mat-error>Por favor ingrese un nombre</mat-error>
@@ -27,7 +27,7 @@
               matInput
               placeholder="Nacionalidad"
               name="nacionalidad"
-              ngModel
+              [(ngModel)] = "data.nacionalidad"
               required
             />
             <mat-error>Ingresa la nacionalidad del autor</mat-error>
@@ -39,7 +39,7 @@
               type="text"
               matInput
               name="descripcion"
-              ngModel
+              [(ngModel)]="data.descripcion"
               required
               rows="8"
             >
@@ -56,7 +56,7 @@
               type="text"
               matInput
               name="ocupacion"
-              ngModel
+              [(ngModel)]="data.ocupacion"
               required
             />
             <mat-error>Ingresa la ocupacion del autor</mat-error>
@@ -71,7 +71,6 @@
               matInput
               name="imgFoto"
               ngModel
-              required
             />
             <mat-error>Porfavor selecciona una imagen</mat-error>
           </mat-form-field>
@@ -82,7 +81,7 @@
               type="text"
               matInput
               name="obrasDestacadas"
-              ngModel
+              [(ngModel)]="data.obrasDestacadas"
               required
             />
             <mat-error>Ingresa al menos una obra</mat-error>
@@ -115,6 +114,6 @@
 
   <mat-dialog-actions class="centrar">
     <button class="btn-grad" [mat-dialog-close]="true">Cerrar</button>
-    <button class="btn-grad" type="submit">Guardar</button>
+    <button class="btn-grad" type="submit">Actualizar</button>
   </mat-dialog-actions>
 </form>

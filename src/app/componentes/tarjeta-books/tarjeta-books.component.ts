@@ -14,47 +14,19 @@ export class TarjetaBooksComponent implements OnInit, OnDestroy {
   private booksSuscription: Subscription;
   booksLista: Books[] = [];
   visible = "";
+  positionTs = true;
 
-  constructor(private booksService: BooksService) { this.mostrarCard(); }
+  constructor(private booksService: BooksService) { }
 
-
-  // mostrar() {
-  //   $(function () {
-  //     var card = $(this).parent('.material-card');
-  //     var icon = $(this).children('i');
-  //     icon.addClass('fa-spin-fast');
-  //   });
-  // }
-
-  mostrarCard() {
-    $(function () {
-      $('.material-card > .mc-btn-action').click(function () {
-        var card = $(this).parent('.material-card');
-        var icon = $(this).children('i');
-        icon.addClass('fa-spin-fast');
-
-        if (card.hasClass('mc-active')) {
-          card.removeClass('mc-active');
-
-          window.setTimeout(function () {
-            icon
-              .removeClass('fa-arrow-left')
-              .removeClass('fa-spin-fast')
-              .addClass('fa-bars');
-
-          }, 800);
-        } else {
-          card.addClass('mc-active');
-          window.setTimeout(function () {
-            icon
-              .removeClass('fa-bars')
-              .removeClass('fa-spin-fast')
-              .addClass('fa-arrow-left');
-
-          }, 800);
-        }
-      });
-    });
+  mostrarCard(book, f) {
+    const positionCard = f.getBoundingClientRect().x;
+    const tamaño = screen.width/2;
+    if (positionCard > tamaño) {
+      this.positionTs = false;
+    }else{
+      this.positionTs = true;
+    }
+    this.visible = book._id;
   }
 
   salir() {

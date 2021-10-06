@@ -41,7 +41,7 @@
               (selectionChange)="selected2($event)"
             >
               <mat-option *ngFor="let autor of autores" value="autor._id">
-                {{ autor.nombre + " " + autor.apellido }}
+                {{ autor.nombreCompleto }}
               </mat-option>
             </mat-select>
           </mat-form-field>
@@ -120,8 +120,8 @@
     </section>
   </mat-dialog-content>
 
-  <mat-dialog-actions>
-    <button mat-button [mat-dialog-close]="true">Cerrar</button>
-    <button mat-raised-button color="warn" type="submit">Guardar</button>
+  <mat-dialog-actions class="centrar">
+    <button class="btn-grad" [mat-dialog-close]="true">Cerrar</button>
+    <button class="btn-grad" type="submit">Guardar</button>
   </mat-dialog-actions>
 </form>

@@ -4,6 +4,7 @@ import { Subject } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { Books } from '../interfaces/books.model';
 import { PaginationBooks } from '../interfaces/paginationBooks.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -26,6 +27,7 @@ export class BooksService {
         this.bookSubject.next(this.booksLista);
       });
   }
+
   getBooks(librosPorPagina: number, paginaActual: number, sort: string, sortDirection: string, filterValue: any): void {
 
     const request = {
@@ -47,14 +49,10 @@ export class BooksService {
   }
 
   addBook(book: Books): void {
-
     this.http.post(this.baseUrl + 'api/libros', book)
       .subscribe((response) => {
-
         this.bookSubject.next();
-
       });
-
   }
 
   updateBook( id: string, book: Books): void{
@@ -67,4 +65,17 @@ export class BooksService {
   addBookListener(): any {
     return this.bookSubject.asObservable();
   }
+
+  getAllGeneros(){
+      return this.http.get
+      (this.baseUrl+'genero').toPromise();
+  }
+
+  deleteAutor(id: string){
+    this.http.delete(this.baseUrl + `api/libros/${id}`)
+    .subscribe(res =>{
+      this.bookSubject.next([...this.booksLista]);
+    });
+  }
+
 }

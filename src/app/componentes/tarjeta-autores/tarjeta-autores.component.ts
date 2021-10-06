@@ -2,6 +2,7 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Autor } from 'src/app/interfaces/autor.model';
 import { AutoresService } from 'src/app/services/autores.service';
+import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 
 @Component({
   selector: 'app-tarjeta-autores',
@@ -13,14 +14,24 @@ export class TarjetaAutoresComponent implements OnInit, OnDestroy {
   autores: Autor[] = [];
   visible: string;
   positionTs = true;
+  inicio = 0;
+  fin = 100;
+  etiquetaVer = "Ver más...";
   private autoresSuscripcion = new Subscription;
 
   constructor(private autoresService: AutoresService) { }
 
   ngOnInit(): void {
+    Swal.fire({
+      allowOutsideClick: false,
+      icon: 'info',
+      text: 'Espere por favor...'
+    });
+    Swal.showLoading();
     this.autoresService.getAutores();
     this.autoresService.getActualListener().subscribe( autores =>{
       this.autores = autores;
+      Swal.close();
     });
   }
   ngOnDestroy(): void {
@@ -44,7 +55,6 @@ export class TarjetaAutoresComponent implements OnInit, OnDestroy {
     $(document).ready(function($){
       var ventana_ancho = $(window).width();
       if (positionCard > ventana_ancho/2) {
-        console.log("si es true");
         constante = false;
       }else{
         constante = true;
@@ -56,6 +66,8 @@ export class TarjetaAutoresComponent implements OnInit, OnDestroy {
 
   salir(){
     this.visible = "";
+    this.fin = 100;
+    this.etiquetaVer = "Ver más";
   }
 
   ancho() {
@@ -63,6 +75,11 @@ export class TarjetaAutoresComponent implements OnInit, OnDestroy {
       var ventana_ancho = $(window).width();
       console.log( "Ancho de la ventana " + ventana_ancho);
     });
+  }
+
+  mostrarDescripcion(event){
+      this.fin = event.length;
+      this.etiquetaVer = "";
   }
 
 

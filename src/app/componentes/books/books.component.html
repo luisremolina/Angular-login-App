@@ -11,30 +11,35 @@
   </ng-container>
 
   <ng-container matColumnDef="titulo">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
-    <mat-cell *matCellDef="let element"> {{ element.titulo }} </mat-cell>
+    <mat-header-cell class="tamañoTitulo" *matHeaderCellDef mat-sort-header> Titulo </mat-header-cell>
+    <mat-cell class="tamañoTitulo" *matCellDef="let element"> {{ element.titulo }} </mat-cell>
   </ng-container>
 
   <ng-container  matColumnDef="descripcion">
-    <mat-header-cell class="tamañoDescripcion"  *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
-    <mat-cell class="tamañoDescripcion clase" *matCellDef="let element"> {{ element.descripcion }} </mat-cell>
+    <mat-header-cell class="tamañoDescripcion" *matHeaderCellDef mat-sort-header> Descripcion </mat-header-cell>
+    <mat-cell class="tamañoDescripcion" *matCellDef="let element"> {{ element.descripcion | slice:0:fin }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="autor">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.autor.nombreCompleto }} </mat-cell>
+    <mat-header-cell class="tamañoAutor" *matHeaderCellDef mat-sort-header> Autor </mat-header-cell>
+    <mat-cell class="tamañoAutor" *matCellDef="let element">{{ element.autor.nombreCompleto }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="precio">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
-    <mat-cell *matCellDef="let element">{{ element.precio | currency }} </mat-cell>
+    <mat-header-cell class="tamañoPrecio" *matHeaderCellDef mat-sort-header> Precio </mat-header-cell>
+    <mat-cell class="tamañoPrecio" *matCellDef="let element">{{ element.precio | currency }} </mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="fechaPublicacion">
+    <mat-header-cell class="tamañoFecha" *matHeaderCellDef mat-sort-header> Fecha de publicacion </mat-header-cell>
+    <mat-cell class="tamañoFecha" *matCellDef="let element">{{ element.fechaPublicacion | date }} </mat-cell>
   </ng-container>
 
   <ng-container matColumnDef="opciones">
-    <mat-header-cell *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
-    <mat-cell *matCellDef="let element" class="tamaño">
-       <mat-icon (click)="abrirDialogEdit(element)" class="boton">edit</mat-icon>
-       <mat-icon (click)="abrirDialog(element)" class="color boton">delete</mat-icon>
+    <mat-header-cell class="tamañoOpciones" *matHeaderCellDef mat-sort-header> Opciones </mat-header-cell>
+    <mat-cell class="tamañoOpciones" *matCellDef="let element">
+       <mat-icon (click)="abrirDialogEdit(element)" class="botonUpdate">edit</mat-icon>
+       <mat-icon (click)="deleteBook(element)" class="botonDelete">delete</mat-icon>
     </mat-cell>
   </ng-container>
 
@@ -50,6 +55,5 @@
   <mat-icon>add</mat-icon>
 </button>
 
-<!-- <button mat-fab id="btn-edit" color="primary" (click)="abrirDialog()">
-  <mat-icon>edit</mat-icon>
-</button> -->
+
+<!-- <p *ngFor="let genero of generos"> {{genero.nombre}} </p> -->

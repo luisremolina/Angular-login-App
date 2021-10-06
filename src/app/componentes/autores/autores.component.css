@@ -18,24 +18,24 @@ margin-bottom: 30px;
 }
 
 .tamañoFoto{
-  max-width: 10% !important;
+  max-width: 10%;
 }
 .tamañoNombre{
-  max-width: 15% !important;
+  max-width: 15%;
 }
 .tamañoOcupacion{
-  max-width: 15% !important;
+  max-width: 15%;
 }
 .tamañoDescripcion{
-  max-width: 35% !important;
-  margin: 10px !important;
+  max-width: 35%;
+  margin: 10px;
 }
 .tamañoObras{
-  max-width: 15% !important;
-  margin-right: 20px !important;
+  max-width: 15%;
+  margin-right: 20px;
 }
 .tamañoOpciones{
-  max-width: 10% !important;
+  max-width: 10%;
 }
 .parrafo{
   text-align: justify;
@@ -48,6 +48,61 @@ margin-bottom: 30px;
   color: blue;
   cursor: pointer;
 }
-
+.verDescripcion{
+  cursor: pointer;
+  color: brown;
+}
 /* ---------------------------- */
 
+@media screen and (max-width: 960px) {
+
+  .mat-table .mat-header-cell {
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+
+  .mat-table {
+    border: 0;
+    vertical-align: middle;
+  }
+
+  .mat-table .mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+  }
+
+  .mat-table .mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    height:100px;
+    max-width: 100%;
+    margin-bottom: 4%;
+    margin-right: 20px;
+  }
+  .mat-table .mat-cell:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+    font-size: .85em;
+  }
+  .mat-table .mat-cell:last-child {
+    border-bottom: 0;
+  }
+    .mat-table .mat-cell:first-child {
+    margin-top: 4%;
+  }
+
+}

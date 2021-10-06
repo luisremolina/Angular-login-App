@@ -12,7 +12,8 @@ a:active{
 list-style: none;
 }
 .bg-color{
-  background-color: #385E72;
+  /* background-color: #385E72; */
+  background: linear-gradient(to right, #3b98d6, #505BDA);
 }
 .blanco{
   color: #fff;

@@ -1,93 +1,79 @@
-
-.example-card {
-  max-width: 400px;
-
+mat-card{
+  margin: auto;
+  margin-top: 5px;
 }
 
 .flex{
   display: flex;
   flex-wrap: wrap;
-
 }
 
-.imagen{
-  /* width: 220px;
-  height: 325px;
-  border-radius: 7px !important;
-  margin-bottom: 0; */
+.contenedorCards{
+  width: 300px;
+  height: 420px;
+  background-color: #f2f2f2;
+  position: relative;
+  display: inline-block;
+}
+.contenedorCards .imagen{
+  width: 90%;
+  height: 90%;
+  margin: 15px;
+  object-fit: cover;
+}
 
+.contenedor-texto{
+  position: absolute;
   width: 100%;
-  height: 100%;
-  /* object-fit: scale-down; */
+  height: 10%;
+  top: 90%;
+  left: 50%;
+  background-color: #f2f2f2;
+  transform: translate(-50%, -50%);
+  color: #333;
 }
-.margenTargetas{
-  margin: 6px !important;
-  max-width: 300px;
+.contenedor-texto p{
+  margin-left: 13px;;
+}
+
+
+
+/* ESTILOS PARA LA CARD DE INFO */
+
+
+.infoCard{
+  width: 300px;
+  padding: 20px;
+  border-radius: 20px;
+  color: rgb(245, 245, 245, .4);
+  background-image: linear-gradient(135deg, #3c393c 0, #352d37 16.67%, #2b2232 33.33%, #20162d 50%, #140829 66.67%, #020026 83.33%, #000023 100%);
+}
+.positionRigth{
+  position: absolute;
+  top: 10%;
+  left: 90%;
+  z-index: 10;
+}
+.positionLeft{
+  position: absolute;
+  top: 10%;
+  right: 90%;
+  z-index: 10;
+}
+.alinearHeader{
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
 }
-
-
-.texto{
-  text-align: center;
-  font-weight: 400;
-  font-size: 17px;
-  margin-top: 5px;;
-  flex-wrap: wrap;
-}
-
-mat-card{
-  height: 310px;
-}
-
-.imgLogo{
-  width: 30px;
-  margin-right: 5px;
-}
-
-.contenedor{
-  background-color: #385E72;
-  padding: 14px !important;
-  color: #B7CFDC;
-  border-radius: 15px;
-  position:  absolute;
-  z-index: 10;
-  left: 240px;
-  width: 270px;
-}
-
-.colorTenue{
-  color: #B7CFDC;
-}
-.title{
-  color: #fff;
-}
-.alinear{
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 10px;
-}
-.precio{
-  background: #6468AC;
-  border-radius: 4px;
-  padding: 0px 10px;
-  padding-top: 2px;
-  color: #000;
-  cursor: pointer;
-}
-.precio:hover{
-  background: #9094CB;
-}
-
-.alinearFooter{
+.alinearVerticalmente{
   display: flex;
   align-items: center;
 }
 
-.alinearFooter span{
-  margin-left: 3px;
+.deleteMargin{
+  margin: 0 !important;
+  padding: 0 !important;
 }
-.mleft-3{
-  margin-left: 5px !important;
+.verMas{
+  color: #fff;
+  cursor: pointer;
 }

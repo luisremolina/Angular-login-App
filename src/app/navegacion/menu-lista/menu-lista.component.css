@@ -1,5 +1,6 @@
 .contenedor{
-  background-color: #889EAF;
+  /* background-color: #F3F1F5; */
+  background: linear-gradient(to right, #3b98d6, #505BDA);
   height: 100vh;
 }
 a {
@@ -15,5 +16,6 @@ a:active{
   padding-left: 7px;
 }
 .colorbg{
-  background-color: #889EAF;
+  background: linear-gradient(to right, #3b98d6, #505BDA);
+  /* background-color: #F3F1F5; */
 }

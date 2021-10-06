@@ -1,4 +1,4 @@
-<div #flex class="flex">
+<div #flex class="flex bg_animate">
   <mat-card *ngFor="let autor of autores">
     <div #f class="contenedorCards" (mouseenter)="mostrar2(autor, f)">
       <img class="imagen" src="{{ autor.imgFoto | noimage }}" alt="...." />
@@ -7,13 +7,13 @@
       </div>
     </div>
     <!-- *ngIf="autor._id === visible" -->
-    <div (mouseleave)="salir()" class="infoCard" [ngClass]="{'positionRigth': positionTs, 'positionLeft': !positionTs}" *ngIf="autor._id === visible">
+    <div (mouseleave)="salir()" class="infoCard animated fadeIn" [ngClass]="{'positionRigth': positionTs, 'positionLeft': !positionTs}" *ngIf="autor._id === visible">
       <div class="alinearHeader">
         <span class="nombreAutor">{{ autor.nombreCompleto }}</span>
         <span class="alinearVerticalmente"> <mat-icon class="deleteMargin"> flag </mat-icon> <p class="deleteMargin">{{ autor.nacionalidad }}</p> </span>
         <span class="alinearVerticalmente"> <mat-icon class="deleteMargin"> work </mat-icon> <p class="deleteMargin">{{ autor.ocupacion }}</p> </span>
       </div>
-      <p>{{ autor.descripcion }}</p>
+      <p>{{ autor.descripcion | slice:inicio:fin }} <a class="verMas" (click)="mostrarDescripcion(autor.descripcion)">{{ etiquetaVer }}</a> </p>
       <div>
         <!-- <P>{{autor.genero}}</P> -->
         <h4>Generos</h4>
@@ -23,4 +23,17 @@
       </div>
     </div>
   </mat-card>
+</div>
+
+<div class="burbujas">
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
 </div>

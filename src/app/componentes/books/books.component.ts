@@ -30,10 +30,12 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
   sort = 'titulo';
   sortDirection = 'asc';
   filterValue = {};
+  fin = 100;
 
+  generos: any [] = [];
   bookData: Books[] = [];
   private bookSuscripcion: Subscription;
-  desplegarColumnas = ['imgFoto', 'titulo', 'descripcion', 'autor', 'precio', 'opciones'];
+  desplegarColumnas = ['imgFoto', 'titulo', 'descripcion', 'autor', 'precio', 'fechaPublicacion', 'opciones'];
   dataSource = new MatTableDataSource<Books>();
   @ViewChild(MatSort) ordenamiento: MatSort;
   @ViewChild(MatPaginator) paginacion: MatPaginator;
@@ -128,6 +130,7 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
       this.filterValue
     );
   }
+
   ngOnInit(): void {
     Swal.fire({
       allowOutsideClick: false,
@@ -142,6 +145,11 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
       this.sortDirection,
       this.filterValue
     );
+
+    this.bookService.getAllGeneros().then(
+      (res:any) =>{
+      this.generos = res;
+    });
     this.bookSuscripcion = this.bookService
       .getActualListener()
       .subscribe((pagination: PaginationBooks) => {
@@ -149,11 +157,49 @@ export class BooksComponent implements OnInit, AfterViewInit, OnDestroy {
         this.totalLibros = pagination.totalRows;
         Swal.close();
       });
+
   }
+
+  deleteBook(element){
+    Swal.fire({
+      title: 'Deseas eliminar: ' + element.titulo,
+      showDenyButton: true,
+      showCancelButton: true,
+      confirmButtonText: 'Eliminar',
+      denyButtonText: `No Eliminar`,
+    }).then((result) => {
+
+      if (result.isConfirmed) {
+        this.bookService.deleteAutor(element._id);
+        this.bookService.getBooks(
+          this.librosPorPagina,
+          this.paginaActual,
+          this.sort,
+          this.sortDirection,
+          this.filterValue
+        );
+        this.bookSuscripcion = this.bookService
+          .getActualListener()
+          .subscribe((pagination: PaginationBooks) => {
+            this.dataSource = new MatTableDataSource<Books>(pagination.data);
+            this.totalLibros = pagination.totalRows;
+            Swal.close();
+          });
+        this.dialog.closeAll();
+        Swal.fire('Se ha eliminado correctamente el autor!', '', 'success')
+      } else if (result.isDenied) {
+        Swal.fire('Los cambion no fueron registrados', '', 'info')
+        this.dialog.closeAll();
+      }
+    });
+  }
+
+
   ngAfterViewInit(): void {
     this.dataSource.sort = this.ordenamiento;
     this.dataSource.paginator = this.paginacion;
   }
+
   ngOnDestroy(): void {
     this.bookSuscripcion.unsubscribe();
   }

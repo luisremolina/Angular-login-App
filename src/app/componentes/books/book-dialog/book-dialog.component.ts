@@ -43,7 +43,7 @@ export class BookDialogComponent implements OnInit, OnDestroy {
   filteredFruits: Observable<string[]>;
   fruits: string[] = ['Aventura'];
   allFruits: string[] = ['Aventura', 'Shounen', 'Suspenso', 'Misterio', 'Acción', 'Fantasía', 'Gore', 'Sobrenatural', 'Romance', 'Drama', 'Artes Marciales', 'Ciencia Ficción', 'Thriller', 'Comedia', 'Mecha', 'Supernatural', 'Tragedia',  'Adulto', 'Harem', 'Yuri', 'Seinen', 'Horror', 'Webtoon', 'Apocalíptico', 'Boys Love', 'Ciberpunk', 'Crimen', 'Demonios', 'Deporte', 'Ecchi', 'Extranjero', 'Familia', 'Fantasia', 'Género Bender', 'Girls Love', 'Guerra', 'Historia', 'Magia', 'Militar', 'Musica', 'Parodia', 'Policiaco', 'Psicológico', 'Realidad', 'Realidad Virtual', 'Recuentos de la vida', 'Reencarnación', 'Samurái', 'Superpoderes', 'Supervivencia', 'Vampiros'];
-  
+
   @ViewChild('fruitInput') fruitInput: ElementRef<HTMLInputElement>;
 
   constructor(

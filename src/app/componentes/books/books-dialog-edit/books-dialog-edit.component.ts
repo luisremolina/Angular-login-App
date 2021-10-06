@@ -17,6 +17,7 @@ import Swal from 'sweetalert2/dist/sweetalert2.all.js';
   styleUrls: ['./books-dialog-edit.component.css']
 })
 export class BooksDialogEditComponent implements OnInit {
+
   SelectAutor: string;
   SelectAutorTexto: string;
   autorSuscripcion: Subscription;
@@ -51,6 +52,7 @@ export class BooksDialogEditComponent implements OnInit {
           id: this.SelectAutor,
           nombreCompleto: this.SelectAutorTexto,
         };
+
         const libroRequest = {
           id: null,
           descripcion: form.value.descripcion,
@@ -73,10 +75,12 @@ export class BooksDialogEditComponent implements OnInit {
   }
 
   editarLibro(form: NgForm): void {
-
-    if (!form.value.imgFoto) {
+    if (form.value.imgFoto === '') {
       this.imgFoto =  this.data.imgFoto;
-
+    }
+    if (!form.value.autor) {
+      this.SelectAutor = this.data.autor.id,
+      this.SelectAutorTexto = this.data.autor.nombreCompleto
     }
     if (form.valid) {
       this.sweetAlert(form);
@@ -85,16 +89,16 @@ export class BooksDialogEditComponent implements OnInit {
 
   selected(event: MatSelectChange): void {
     this.SelectAutorTexto = (event.source.selected as MatOption).viewValue;
-    // console.log(this.SelectAutorTexto);
   }
 
   obtenerImagen(event): any{
     this.imgFoto = "assets/img/" + event.target.files[0].name;
-    console.log(this.imgFoto);
+    // console.log(this.imgFoto);
   }
 
 
   ngOnInit(): void {
+    console.log(this.data);
     this.autorService.getAutores();
     this.autorSuscripcion = this.autorService.getActualListener().subscribe((autores: Autor[]) => {
       this.autores = autores;
