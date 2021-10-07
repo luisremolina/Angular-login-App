@@ -1,12 +1,18 @@
-<header class="bg_animate ">
-  <section class="banner contenedor">
+<header class="bg_animate">
+  <section  class="banner contenedor" *ngIf="!userLogeado">
       <section class="banner_title">
           <h2>Welcome <br> Libros Market</h2>
-          <a class="llamanos">Contactame!</a>
+          <a *ngIf="!userLogeado" routerLink="/login" class="llamanos">Entra ahora!</a>
       </section>
-      <div class="banner_img">
+      <div class="banner_img" >
           <img src="assets/img/books-img.png" alt="...">
       </div>
+  </section>
+
+  <section class="banner contenedor temporal">
+    <div class="banner_title">
+      slider xdd
+    </div>
   </section>
 
   <div class="burbujas">

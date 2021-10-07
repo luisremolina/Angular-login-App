@@ -11,8 +11,8 @@ import { LoginComponent } from './seguridad/login/login.component';
 import { RegistrarComponent } from './seguridad/registrar/registrar.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: '', component: HomeComponent,  },
+  { path: 'home', component: HomeComponent, },
   { path: 'lista', component: LibrosComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registrar', component: RegistrarComponent },

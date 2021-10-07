@@ -21,17 +21,6 @@ export class LoginComponent implements OnInit {
         email: form.value.email,
         password: form.value.password
       });
-      // if (logearse === undefined) {
-      //   console.log("si es undefined");
-      //   Swal.fire({
-      //     icon: 'error',
-      //     title: 'Oops...',
-      //     text: 'Verifica tus credenciales!'
-      //   });
-      // }else{
-      //   console.log("no es undefined");
-
-      // }
     }
   }
 

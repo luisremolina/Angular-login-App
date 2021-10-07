@@ -1,5 +1,8 @@
 <section>
-  <form fxLayout="column" fxLayoutGap="10px" fxLayoutAlign="center center" #f="ngForm" (ngSubmit)="registrar(f)">
+  <div class="logotipo">
+    <img src="assets/img/libros-registro.png" alt="...">
+  </div>
+  <form fxLayout="column" fxLayoutGap="10px" #f="ngForm" (ngSubmit)="registrar(f)">
 
     <mat-form-field appearance="fill">
       <mat-label>Ingrese nombre</mat-label>
@@ -15,7 +18,7 @@
 
     <mat-form-field appearance="fill">
       <mat-label>Ingrese username</mat-label>
-      <input matInput type="text" ngModel name="username" placeholder="ejemplo: empanadas1234" required>
+      <input matInput type="text" ngModel name="username" required>
       <mat-error>Por favor ingrese un username</mat-error>
     </mat-form-field>
 
@@ -33,12 +36,19 @@
       <mat-error>La contraseña debe tener mas de 7 caracteres</mat-error>
     </mat-form-field>
 
-    <button [disabled]="f.invalid" type="submit" mat-raised-button color="primary">Registrar</button>
+    <button  type="submit" class="btn-grad">Registrar usuario</button>
   </form>
 </section>
 
-<!-- <section id="contenedor">
-  <div class="elemento" id="elemento1"></div>
-  <div class="elemento" id="elemento2"></div>
-  <div class="elemento" id="elemento3"></div>
-</section> -->
+<div class="burbujas">
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+  <div class="burbuja"></div>
+</div>

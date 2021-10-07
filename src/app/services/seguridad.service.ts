@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
+import Swal from 'sweetalert2/dist/sweetalert2.all.js';
 @Injectable({
   providedIn: 'root'
 })
@@ -75,6 +76,7 @@ export class SeguridadService {
 
     this.http.post<Usuario>(this.baseUrl + 'usuario/login', loginData)
       .subscribe((response) => {
+
         this.token = response.token;
         this.usuario = {
           email: response.email,
@@ -89,6 +91,12 @@ export class SeguridadService {
         localStorage.setItem('token', response.token)
         this.route.navigate(['home']);
 
+      }, err =>{
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Algo ocurrio mal verifica tus credenciales!',
+        });
       });
   }
 

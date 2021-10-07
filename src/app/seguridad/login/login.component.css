@@ -1,9 +1,44 @@
+section{
+  background: linear-gradient(to right, #3b98d6, #505BDA);
+  height: 100vh;
+}
 mat-form-field{
+  display: block;
   width: 100%;
 }
 
 mat-card{
   width: 320px;
-
+  height: 420px;
+  position: absolute;
+  top: 20%;
+  border-radius: 30px;
 }
-
+.alinear{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20%;
+}
+.alinear mat-icon{
+  margin-right: 5px;
+}
+.icono{
+  display: block;
+  margin-left: 28%;
+}
+.icono mat-icon{
+  font-size: 150px;
+}
+.centrar{
+  display: flex;
+  align-items: center;
+}
+.centrar mat-icon{
+  margin-right: 15px;
+  font-size: 35px;
+}
+.centrar input{
+  height: 35px;
+  margin-top: 7px;
+}

@@ -25,8 +25,8 @@ export class BarraComponent implements OnInit, OnDestroy {
     this.menuToggle.emit();
   }
   cerrarSesion(){
-    console.log('sirve');
     this.seguridadServicio.cerrarSesion();
+    
   }
   ngOnDestroy(): void {
     this.usuarioSuscripcion.unsubscribe();

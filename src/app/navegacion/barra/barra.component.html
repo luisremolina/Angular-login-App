@@ -4,11 +4,12 @@
   </button>
   <span class="blanco">Libro Market</span>
   <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs>
-    <ul class="navegation-menu" fxLayoutGap="10px" fxLayout="row">
+    <!-- fxLayoutGap="10px" fxLayout="row" -->
+    <ul class="navegation-menu">
 
       <!-- ROUTES CON USER LOGEADO -->
 
-      <li> <a *ngIf="userLogueado" routerLink="/home">Inicio</a> </li>
+      <li> <a class="puntero" routerLink="/home">Inicio</a> </li>
 
       <!-- BOTONES TOGLER -->
       <li> <a class="puntero" *ngIf="userLogueado" [matMenuTriggerFor]="belowMenu">Autores</a> </li>

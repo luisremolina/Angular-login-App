@@ -1,6 +1,7 @@
 a {
   text-decoration: none;
   color: #fff;
+  margin-right: 10px;
 }
 a:hover,
 a:active{
@@ -9,10 +10,11 @@ a:active{
 }
 
 .navegation-menu{
-list-style: none;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
 }
 .bg-color{
-  /* background-color: #385E72; */
   background: linear-gradient(to right, #3b98d6, #505BDA);
 }
 .blanco{
