@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Usuario } from '../interfaces/usuario.model';
 import { Login } from '../interfaces/login-data.model';
-import { Subject } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
 import { HttpClient } from '@angular/common/http';
@@ -14,6 +14,7 @@ export class SeguridadService {
   baseUrl = environment.baseUrl;
   seguridadCambio = new Subject<boolean>();
   private usuario: Usuario;
+  private userLogeado$ = new Subject<boolean>();
 
   getToken(): string {
     return this.token;
@@ -40,6 +41,7 @@ export class SeguridadService {
           usuarioId: response.usuarioId
         };
         this.seguridadCambio.next(true);
+        this.userLogeado$.next(true)
         localStorage.setItem('token', response.token)
       });
 
@@ -67,6 +69,7 @@ export class SeguridadService {
           usuarioId: response.usuarioId
         };
         this.seguridadCambio.next(true);
+        this.userLogeado$.next(true)
         localStorage.setItem('token', response.token)
         this.route.navigate(['home']);
       });
@@ -88,7 +91,8 @@ export class SeguridadService {
           usuarioId: response.usuarioId
         };
         this.seguridadCambio.next(true);
-        localStorage.setItem('token', response.token)
+        this.userLogeado$.next(true);
+        localStorage.setItem('token', response.token);
         this.route.navigate(['home']);
 
       }, err =>{
@@ -102,9 +106,11 @@ export class SeguridadService {
 
   cerrarSesion() {
     this.usuario = null;
-    this.seguridadCambio.next(false);
     localStorage.removeItem('token');
+    this.seguridadCambio.next(false);
+    this.userLogeado$.next(false);
     this.route.navigate(['login']);
+
   }
 
   obtenerUsuario() {
@@ -112,6 +118,11 @@ export class SeguridadService {
   }
 
   estaAutenticado() {
-    return this.token != null;
+      return this.token != null;
+  }
+
+  getEstado(){
+    // console.log("entro al get");
+    return this.seguridadCambio.asObservable();
   }
 }

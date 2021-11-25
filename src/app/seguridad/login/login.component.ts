@@ -21,6 +21,12 @@ export class LoginComponent implements OnInit {
         email: form.value.email,
         password: form.value.password
       });
+    }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Debes ingresar un correo y una contraseña!',
+      });
     }
   }
 

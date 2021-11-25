@@ -1,19 +1,20 @@
 <header class="bg_animate">
-  <section  class="banner contenedor" *ngIf="!userLogeado">
+  <!-- *ngIf="!userLogeado" -->
+  <section #sessionDuration  class="banner contenedor" >
       <section class="banner_title">
           <h2>Welcome <br> Libros Market</h2>
-          <a *ngIf="!userLogeado" routerLink="/login" class="llamanos">Entra ahora!</a>
+          <a routerLink="/login" class="llamanos">Entra ahora!</a>
       </section>
       <div class="banner_img" >
           <img src="assets/img/books-img.png" alt="...">
       </div>
   </section>
 
-  <section class="banner contenedor temporal">
+  <!-- <section class="banner contenedor temporal">
     <div class="banner_title">
       slider xdd
     </div>
-  </section>
+  </section> -->
 
   <div class="burbujas">
       <div class="burbuja"></div>
