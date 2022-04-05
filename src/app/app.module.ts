@@ -9,17 +9,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './componentes/home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './angular-material/material.module';
-import { LoginComponent } from './seguridad/login/login.component';
-import { RegistrarComponent } from './seguridad/registrar/registrar.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrarComponent } from './auth/registrar/registrar.component';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { BarraComponent } from './navegacion/barra/barra.component';
-import { MenuListaComponent } from './navegacion/menu-lista/menu-lista.component';
+import { BarraComponent } from './shared/Header/components/barra-nav/barra.component';
+import { MenuListaComponent } from './shared/Header/components/menu-lista-lateral/menu-lista.component';
 import { BooksComponent } from './componentes/books/books.component';
 import { BookDialogComponent } from './componentes/books/book-dialog/book-dialog.component';
 import { MAT_DATE_LOCALE } from '@angular/material/core';
 import { AutoresComponent } from './componentes/autores/autores.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { SeguridadInterceptor } from './seguridad/seguridad-interceptor';
+import { SeguridadInterceptor } from './auth/seguridad-interceptor';
 import { AutorDialogComponent } from './componentes/autores/autor-dialog/autor-dialog.component';
 import { TarjetaAutoresComponent } from './componentes/tarjeta-autores/tarjeta-autores.component';
 import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books.component';
@@ -28,6 +28,7 @@ import { BooksDialogEditComponent } from './componentes/books/books-dialog-edit/
 import { TarjetaPrototypeComponent } from './componentes/tarjeta-prototype/tarjeta-prototype.component';
 import { DescriptionPipe } from './pipes/description.pipe';
 import { AutorDialogEditComponent } from './componentes/autores/autor-dialog-edit/autor-dialog-edit.component';
+import { HeaderComponent } from './shared/components/header/header.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { AutorDialogEditComponent } from './componentes/autores/autor-dialog-edi
     TarjetaPrototypeComponent,
     DescriptionPipe,
     AutorDialogEditComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,

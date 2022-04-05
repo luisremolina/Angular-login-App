@@ -7,8 +7,8 @@ import { LibrosComponent } from './componentes/libros/libros.component';
 import { TarjetaAutoresComponent } from './componentes/tarjeta-autores/tarjeta-autores.component';
 import { TarjetaBooksComponent } from './componentes/tarjeta-books/tarjeta-books.component';
 import { AuthGuard } from './guard/Auth.guard';
-import { LoginComponent } from './seguridad/login/login.component';
-import { RegistrarComponent } from './seguridad/registrar/registrar.component';
+import { LoginComponent } from './auth/login/login.component';
+import { RegistrarComponent } from './auth/registrar/registrar.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent,  },

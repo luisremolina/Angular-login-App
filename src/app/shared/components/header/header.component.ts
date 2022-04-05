@@ -1,13 +1,13 @@
-import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, Output,EventEmitter, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { SeguridadService } from '../../services/seguridad.service';
+import { SeguridadService } from '../../../services/seguridad.service';
 
 @Component({
-  selector: 'app-barra',
-  templateUrl: './barra.component.html',
-  styleUrls: ['./barra.component.css']
+  selector: 'app-header',
+  templateUrl: './header.component.html',
+  styleUrls: ['./header.component.css']
 })
-export class BarraComponent implements OnInit, OnDestroy {
+export class HeaderComponent implements OnInit, OnDestroy {
 
   @Output() menuToggle = new EventEmitter();
   userLogueado: boolean;
@@ -26,7 +26,7 @@ export class BarraComponent implements OnInit, OnDestroy {
   }
   cerrarSesion(){
     this.seguridadServicio.cerrarSesion();
-    
+
   }
   ngOnDestroy(): void {
     this.usuarioSuscripcion.unsubscribe();
