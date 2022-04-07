@@ -18,18 +18,17 @@
          <a class="nav-link" routerLink="">Registrar Producto</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" [routerLink]="['login']">Inicia sesion</a>
+          <a 
+          *ngIf="!auth.estaAutenticado()" class="nav-link" [routerLink]="['login']">Inicia sesion</a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" routerLink="/registro">Registrarse</a>
+          <a *ngIf="!auth.estaAutenticado()" class="nav-link" routerLink="/registro">Registrarse</a>
       </li>
       </ul>
-       <!-- <li class="nav-item">
-          <a class="nav-link" [routerLink]="['login']">Inicia sesion</a>
-      </li>
-      <li class="nav-item">
-          <a class="nav-link" [routerLink]="['registrarse']">Registrarse</a>
-      </li> -->
+    </div>
+    <!-- <div *ngIf="auth.estaAutenticado()"> -->
+      <div *ngIf="auth.estaAutenticado()">
+      <button  (click)="getOut()" class="btn btn-danger">Salir</button>
     </div>
   </div>
 </nav>
